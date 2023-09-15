@@ -30,11 +30,8 @@ print(valor_celula3)
 
 tabela = pd.read_excel('Tabelas\Escrita.xlsx')
 
-n1=10
 
-n2=5
-
-tabela.loc[n2,'Nomes'] = (valor_celula3)
+tabela.loc[0,'Nomes'] = (valor_celula3)
 
 tabela.loc[0,'Idades'] = (valor_celula2)
 
@@ -42,7 +39,6 @@ tabela.loc[1,'Nomes'] = (valor_celula1)
 
 tabela.loc[1,'Idades'] = (valor_celula)
 
-tabela.loc[n1, 'Idades'] = (n1)
 
 tabela.to_excel('Tabelas\Escrita.xlsx', index=False)
 
