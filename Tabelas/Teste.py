@@ -1,10 +1,10 @@
 import openpyxl
 
 # Abra o arquivo Excel
-workbook = openpyxl.load_workbook("Tabelas\Arquivo.xlsx")
+workbook = openpyxl.load_workbook("Tabelas\Teste.xlsx")
 
 # Selecione a planilha desejada (pode ser por nome ou índice)
-sheet = workbook["Tabelas\Arquivo.xlsx"]  # Ou use sheet = workbook[0] para selecionar a primeira planilha
+sheet = workbook["Nomes"]  # Ou use sheet = workbook[0] para selecionar a primeira planilha
 
 # Valor que você deseja procurar na planilha
 valor_procurado = 'Valor que você deseja encontrar'
