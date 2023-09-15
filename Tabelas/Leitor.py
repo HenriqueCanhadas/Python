@@ -52,6 +52,6 @@ print('-'*75)
 
 #Celula Especifica
 
-valor = tabela.iloc[5, 2]
+valor_celula1 = tabela.iat[1, 1]
 
-print(valor)
+print(valor_celula1)
