@@ -1,7 +1,53 @@
 import pandas as pd
-
 #Pegar Celula Especifica
+tabela = f'Relatorio\\REVISÃO - Boletim de Amostragem 7918.xlsx'
+tabela = pd.read_excel(tabela, sheet_name='PMN-03')
+print(tabela)
+multiparametro = tabela.iat[12, 8] #I14 OK
+turbidimetro = tabela.iat[16, 8]#I18 OK
+identificacao  = tabela.iat[28, 2]#C30 OK
+data = tabela.iat[4, 2]#C6 OK
+horaensaio = tabela.iat[28, 7]#H30
+horaamostragem = tabela.iat[28, 10]#K30
+condutividade = tabela.iat[39, 4]#E41
+oxirreducao = tabela.iat[39, 6]#G41
+oxigenio = tabela.iat[39, 8]#I41
+ph = tabela.iat[39, 11]#L41
+temperatura = tabela.iat[39, 13]#N41
+turbidez = tabela.iat[39, 15]#P41
+condicoes = tabela.iat[28, 15]#P30
+print('-'*75)
+print(multiparametro)
+print(turbidimetro)
+print(identificacao)
+print(data)
+print(horaensaio)
+print(horaamostragem)
+print(condutividade)
+print(oxirreducao)
+print(oxigenio)
+print(ph)
+print(temperatura)
+print(turbidez)
+print(condicoes)
+#Escrever Resultado
+n=3
+tabela = pd.read_excel('Relatorio\Resultados.xlsx')
+tabela.loc[(n),'Multiparâmetro - Patrimônio Nº SRV-ITR-0001'] = (multiparametro)
+tabela.loc[(n),'Turbidimetro - Patrimônio Nº SRV-ITR-0007'] = (turbidimetro)
+tabela.loc[(n),'Identificação da amostra:'] = (identificacao)
+tabela.loc[(n),'Hora do ensaio:'] = (horaensaio)
+tabela.loc[(n),'Hora da amostragem:'] = (horaamostragem)
+tabela.loc[(n),'Condutividade'] = (condutividade)
+tabela.loc[(n),'Potencial de oxirredução'] = (oxirreducao)
+tabela.loc[(n),'Oxigênio Dissolvido'] = (oxigenio)
+tabela.loc[(n),'pH'] = (ph)
+tabela.loc[(n),'Temperatura'] = (temperatura)
+tabela.loc[(n),'Turbidez'] = (turbidez)
+tabela.loc[(n),'Condições ambientais: 0 Sem chuva; 1 Leve; '] = (condicoes)
+tabela.to_excel('Relatorio\Resultados.xlsx', index=False)
 
+<<<<<<< Updated upstream
 tabela = pd.read_excel('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx', sheet_name='PMN-03')
 print(tabela)
 
@@ -71,3 +117,5 @@ tabela.loc[0,'Condições ambientais: 0 Sem chuva; 1 Leve; '] = (condicoes)
 tabela.to_excel('Relatorio\Resultados.xlsx', index=False)
 
 
+=======
+>>>>>>> Stashed changes
