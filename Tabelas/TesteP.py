@@ -15,7 +15,9 @@ print(valor_celula1)
 
 #Pegar Celula de Outra Guia
 
-dp = pd.read_excel('Tabelas\Teste.xlsx', sheet_name='Produtos')
+n=1
+
+dp = pd.read_excel('Tabelas\Teste.xlsx', sheet_name=(n))
 
 print(dp)
 
