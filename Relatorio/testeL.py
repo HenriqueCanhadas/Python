@@ -5,7 +5,7 @@ wb_xlwings = xw.Book('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
 
 valores_xlwings = []
 
-n=70
+n=69
 
 nomes_das_guias = [sheet.name for sheet in wb_xlwings.sheets]
 
