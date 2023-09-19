@@ -30,6 +30,7 @@ import openpyxl
 wb_xlwings = xw.Book('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
 
 nomes_das_guias = [sheet.name for sheet in wb_xlwings.sheets]
+
 for sheet_name in nomes_das_guias:
     planilha = wb_xlwings.sheets[sheet_name]
 

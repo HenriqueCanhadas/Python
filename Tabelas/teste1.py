@@ -1,6 +1,6 @@
 import pandas as pd
 #Pegar Celula Especifica
-tabela = f'Relatorio\\REVISÃO - Boletim de Amostragem 7918.xlsx'
+tabela = f'Relatorio\Testes\REVISÃO - Boletim de Amostragem 7918.xlsx'
 tabela = pd.read_excel(tabela, sheet_name='PMN-03')
 print(tabela)
 multiparametro = tabela.iat[12, 8] #I14 OK
@@ -32,7 +32,7 @@ print(turbidez)
 print(condicoes)
 #Escrever Resultado
 n=3
-tabela = pd.read_excel('Relatorio\Resultados.xlsx')
+tabela = pd.read_excel('Relatorio\Testes\Resultados.xlsx')
 tabela.loc[(n),'Multiparâmetro - Patrimônio Nº SRV-ITR-0001'] = (multiparametro)
 tabela.loc[(n),'Turbidimetro - Patrimônio Nº SRV-ITR-0007'] = (turbidimetro)
 tabela.loc[(n),'Identificação da amostra:'] = (identificacao)
@@ -47,7 +47,6 @@ tabela.loc[(n),'Turbidez'] = (turbidez)
 tabela.loc[(n),'Condições ambientais: 0 Sem chuva; 1 Leve; '] = (condicoes)
 tabela.to_excel('Relatorio\Resultados.xlsx', index=False)
 
-<<<<<<< Updated upstream
 tabela = pd.read_excel('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx', sheet_name='PMN-03')
 print(tabela)
 
@@ -117,5 +116,3 @@ tabela.loc[0,'Condições ambientais: 0 Sem chuva; 1 Leve; '] = (condicoes)
 tabela.to_excel('Relatorio\Resultados.xlsx', index=False)
 
 
-=======
->>>>>>> Stashed changes
