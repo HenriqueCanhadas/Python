@@ -1,35 +1,34 @@
 import openpyxl
-import pandas as pd
+import xlwings as xw
 
 workbook = openpyxl.load_workbook('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
+wb = xw.Book('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
 
-n=2
+n=70
 
 for sheet_name in workbook.sheetnames:
 
-    workbook = openpyxl.load_workbook('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
+    wb = xw.Book('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
+    
+    planilha = wb.sheets[sheet_name]
 
-    tabela = pd.read_excel('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx', sheet_name=sheet_name)
+    multiparametro=planilha.range('I14').value
+    turbidimetro =planilha.range('I18').value
+    identificacao =planilha.range('C30').value
+    data =planilha.range('C6').value
+    horaensaio =planilha.range('H30').value
+    horaamostragem = planilha.range('K30').value
+    condutividade = planilha.range('E41').value
+    oxirreducao = planilha.range('G41').value
+    oxigenio = planilha.range('I41').value
+    ph = planilha.range('L41').value
+    temperatura = planilha.range('N41').value
+    turbidez = planilha.range('P41').value
+    condicoes =planilha.range('P30').value
 
-    sheet = workbook[sheet_name]
+    
 
-    multiparametro=sheet['I14'].value
-    turbidimetro =sheet['I18'].value
-    identificacao  =sheet['C30'].value
-    data =sheet['C6'].value
-    horaensaio =sheet['H30'].value
-    horaamostragem = sheet['K30'].value
-    condutividade = tabela.iat[39, 4]#E41
-    oxirreducao = tabela.iat[39, 6]#G41
-    oxigenio = tabela.iat[39, 8]#I41
-    ph = tabela.iat[39, 11]#L41
-    temperatura = tabela.iat[39, 13]#N41
-    turbidez = tabela.iat[39, 15]#P41
-    condicoes =sheet['P30'].value
-
-    workbook = openpyxl.load_workbook('Relatorio\Testeopen.xlsx')
-
-    sheet = workbook['aba1']
+    sheet = workbook['FINAL']
 
     sheet[f'A{n}']= multiparametro
     sheet[f'B{n}']=turbidimetro
@@ -49,7 +48,8 @@ for sheet_name in workbook.sheetnames:
 
     print(f'N esta em:{n}')
 
-    workbook.save('Relatorio\Testeopen.xlsx')
+    workbook.save('Relatorio\REVISÃO - Boletim de Amostragem 7918.xlsx')
+    wb.close()
 
     print(multiparametro)
     print(turbidimetro)
@@ -64,6 +64,7 @@ for sheet_name in workbook.sheetnames:
     print(temperatura)
     print(turbidez)
     print(condicoes)
+
 
 
 

@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-# Inicialize a variável com um valor inicial (por exemplo, 0)
-valor = 0
-
-# Somar o valor atual ao próprio valor
-valor += 1
-
-valor ==valor
-
-# Imprime o valor atual
-print("Valor atual:", valor)
-=======
 import openpyxl
 import pandas as pd
 
@@ -76,7 +64,7 @@ for sheet_name in workbook.sheetnames:
     print(temperatura)
     print(turbidez)
     print(condicoes)
->>>>>>> Stashed changes
+
 
 
 
