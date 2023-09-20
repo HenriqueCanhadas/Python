@@ -1,17 +1,18 @@
-import pathlib
+from pathlib import Path
 
-# Obtenha o diretório atual
-diretorio_atual = pathlib.Path()
+# Caminho para a pasta atual onde o script Python está localizado
+pasta = Path(__file__).resolve().parent
 
 # Extensão dos arquivos do Excel que você deseja localizar
 extensao_excel = '*.xlsx'  # Altere para a extensão desejada, como '*.xls' se for um arquivo .xls
 
-# Use o método glob para buscar os arquivos Excel no diretório atual
-arquivos_excel = list(diretorio_atual.glob(extensao_excel))
+# Use o método glob para buscar todos os arquivos Excel na pasta atual
+arquivos_excel = list(pasta.glob(extensao_excel))
 
-if not arquivos_excel:
-    print("Nenhum arquivo Excel encontrado no diretório atual.")
+# Verifique se há pelo menos um arquivo Excel na lista
+if arquivos_excel:
+    # Se houver mais de um arquivo, você pode escolher um específico, como o primeiro da lista
+    arquivo = arquivos_excel[0]
+    print(f"Arquivo Excel encontrado: {arquivo}")
 else:
-    print("Arquivos Excel encontrados no diretório atual:")
-    for arquivo in arquivos_excel:
-        print(arquivo)
+    print("Nenhum arquivo Excel encontrado na pasta atual.")
