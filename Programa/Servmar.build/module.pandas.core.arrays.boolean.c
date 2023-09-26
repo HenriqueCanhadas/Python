@@ -127,7 +127,7 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$core$arrays$boolean$$$function__10__simple_new(PyObject *annotations, struct Nuitka_CellObject **closure);
@@ -9858,7 +9858,7 @@ static PyObject *impl_pandas$core$arrays$boolean$$$function__16__accumulate(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_iter_arg_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_iter_arg_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_iter_arg_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -10223,7 +10223,7 @@ static PyObject *impl_pandas$core$arrays$boolean$$$function__16__accumulate(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2, tmp_dircall_arg4_2};
-            tmp_return_value = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

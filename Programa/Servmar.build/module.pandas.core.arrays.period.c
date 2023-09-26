@@ -173,13 +173,13 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__14_complex_call_helper_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9_complex_call_helper_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
@@ -4755,7 +4755,7 @@ static PyObject *impl_pandas$core$arrays$period$$$function__9__generate_range(Py
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_iter_arg_2 = impl___main__$$$function__14_complex_call_helper_keywords_star_dict(tstate, dir_call_args);
+            tmp_iter_arg_2 = impl___main__$$$function__9_complex_call_helper_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_iter_arg_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -30418,7 +30418,7 @@ PyObject *modulecode_pandas$core$arrays$period(PyThreadState *tstate, PyObject *
 
                 {
                     PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_2};
-                    tmp_dircall_arg2_1 = impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
+                    tmp_dircall_arg2_1 = impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
                 }
                 if (tmp_dircall_arg2_1 == NULL) {
                     assert(HAS_ERROR_OCCURRED(tstate));
@@ -30434,7 +30434,7 @@ PyObject *modulecode_pandas$core$arrays$period(PyThreadState *tstate, PyObject *
 
                 {
                     PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_1};
-                    tmp_called_value_28 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+                    tmp_called_value_28 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
                 }
                 if (tmp_called_value_28 == NULL) {
                     assert(HAS_ERROR_OCCURRED(tstate));

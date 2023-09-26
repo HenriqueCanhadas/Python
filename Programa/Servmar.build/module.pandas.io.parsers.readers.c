@@ -173,10 +173,10 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$parsers$readers$$$function__10_read_csv(PyObject *kw_defaults, PyObject *annotations);
@@ -1865,7 +1865,7 @@ static PyObject *impl_pandas$io$parsers$readers$$$function__6__read(PyThreadStat
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_assign_source_5 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_assign_source_5 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_5 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -15844,7 +15844,7 @@ static PyObject *impl_pandas$io$parsers$readers$$$function__24__make_engine(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -18225,7 +18225,7 @@ static PyObject *impl_pandas$io$parsers$readers$$$function__30_TextParser(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

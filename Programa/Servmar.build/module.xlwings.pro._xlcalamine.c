@@ -249,7 +249,7 @@ static PyObject *MAKE_GENERATOR_xlwings$pro$_xlcalamine$$$function__40___iter__$
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_xlwings$pro$_xlcalamine$$$function__10___getitem__();
@@ -2651,7 +2651,7 @@ static PyObject *impl_xlwings$pro$_xlcalamine$$$function__11_add(PyThreadState *
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_2 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_2 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

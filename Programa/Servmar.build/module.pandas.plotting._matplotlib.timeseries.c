@@ -114,7 +114,7 @@ static void createModuleCodeObjects(void) {
 }
 
 // The module function declarations.
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$plotting$_matplotlib$timeseries$$$function__10_use_dynamic_x(PyObject *annotations);
@@ -4378,7 +4378,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$timeseries$$$function__5__repl
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_expression_value_11 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_expression_value_11 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_expression_value_11 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

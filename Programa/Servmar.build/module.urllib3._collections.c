@@ -178,7 +178,7 @@ static PyObject *MAKE_GENERATOR_urllib3$_collections$$$function__36_itermerged$$
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9__unpack_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13__unpack_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_urllib3$_collections$$$function__10_clear(PyObject *annotations);
@@ -14108,7 +14108,7 @@ static PyObject *impl_urllib3$_collections$$$function__33__copy_from(PyThreadSta
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-            tmp_ass_subvalue_1 = impl___main__$$$function__9__unpack_list(tstate, dir_call_args);
+            tmp_ass_subvalue_1 = impl___main__$$$function__13__unpack_list(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

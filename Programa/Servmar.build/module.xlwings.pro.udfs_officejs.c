@@ -113,7 +113,7 @@ static void createModuleCodeObjects(void) {
 static PyObject *MAKE_COROUTINE_xlwings$pro$udfs_officejs$$$function__7_custom_functions_call$$$coroutine__1_custom_functions_call(PyThreadState *tstate, struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
@@ -2951,7 +2951,7 @@ static PyObject *impl_xlwings$pro$udfs_officejs$$$function__3_xlfunc$$$function_
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_ass_subvalue_2 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_ass_subvalue_2 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

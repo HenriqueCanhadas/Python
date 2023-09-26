@@ -137,13 +137,13 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__12_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$plotting$_matplotlib$hist$$$function__10__kind(PyObject *annotations);
@@ -403,7 +403,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__2___init__(Py
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_call_result_1 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_call_result_1 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -2633,7 +2633,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__5__plot(PyThr
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_iter_arg_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_iter_arg_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_iter_arg_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5241,7 +5241,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__6__make_plot(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_assign_source_30 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_assign_source_30 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_30 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6536,7 +6536,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__12___init__(P
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_call_result_1 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_call_result_1 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -7795,7 +7795,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__15__plot(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_assign_source_5 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_assign_source_5 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_5 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -9421,7 +9421,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__18__grouped_p
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_call_result_1 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_call_result_1 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -10783,7 +10783,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__19__grouped_h
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_call_result_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_call_result_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -11435,7 +11435,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__20_hist_serie
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_call_result_2 = impl___main__$$$function__13_complex_call_helper_keywords_star_list(tstate, dir_call_args);
+            tmp_call_result_2 = impl___main__$$$function__12_complex_call_helper_keywords_star_list(tstate, dir_call_args);
         }
         if (tmp_call_result_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -11710,7 +11710,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__20_hist_serie
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2, tmp_dircall_arg4_1};
-            tmp_call_result_3 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_call_result_3 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -12049,7 +12049,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__20_hist_serie
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3, tmp_dircall_arg3_3, tmp_dircall_arg4_2};
-            tmp_assign_source_6 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_assign_source_6 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_6 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -12721,7 +12721,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__21_hist_frame
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_assign_source_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_assign_source_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -13813,7 +13813,7 @@ static PyObject *impl_pandas$plotting$_matplotlib$hist$$$function__21_hist_frame
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2, tmp_dircall_arg4_2};
-            tmp_call_result_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_call_result_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

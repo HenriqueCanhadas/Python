@@ -149,19 +149,19 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__15_complex_call_helper_pos_keywords_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__14_complex_call_helper_pos_keywords_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$core$window$ewm$$$function__10_std(PyObject *defaults, PyObject *annotations);
@@ -3891,7 +3891,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__7_aggregate(PyThreadSta
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_return_value = impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -4363,7 +4363,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__8_mean(PyThreadState *t
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2};
-                tmp_dircall_arg2_1 = impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
+                tmp_dircall_arg2_1 = impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
             }
             if (tmp_dircall_arg2_1 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -4379,7 +4379,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__8_mean(PyThreadState *t
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-                tmp_assign_source_3 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+                tmp_assign_source_3 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
             }
             if (tmp_assign_source_3 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -5276,7 +5276,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__9_sum(PyThreadState *ts
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2};
-                tmp_dircall_arg2_1 = impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
+                tmp_dircall_arg2_1 = impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
             }
             if (tmp_dircall_arg2_1 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -5292,7 +5292,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__9_sum(PyThreadState *ts
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-                tmp_assign_source_3 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+                tmp_assign_source_3 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
             }
             if (tmp_assign_source_3 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -10358,7 +10358,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__14___init__(PyThreadSta
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1, tmp_dircall_arg5_1};
-            tmp_call_result_1 = impl___main__$$$function__15_complex_call_helper_pos_keywords_star_list_star_dict(tstate, dir_call_args);
+            tmp_call_result_1 = impl___main__$$$function__14_complex_call_helper_pos_keywords_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -13415,7 +13415,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__23_mean(PyThreadState *
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_assign_source_10 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_10 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_10 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -13729,7 +13729,7 @@ static PyObject *impl_pandas$core$window$ewm$$$function__23_mean(PyThreadState *
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_1};
-            tmp_assign_source_14 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_assign_source_14 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_14 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

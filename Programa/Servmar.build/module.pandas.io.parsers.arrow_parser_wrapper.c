@@ -101,7 +101,7 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$parsers$arrow_parser_wrapper$$$function__1___init__(PyObject *annotations, struct Nuitka_CellObject **closure);
@@ -6392,7 +6392,7 @@ static PyObject *impl_pandas$io$parsers$arrow_parser_wrapper$$$function__5_read(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_kw_call_dict_value_0_1 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_kw_call_dict_value_0_1 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_dict_value_0_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6439,7 +6439,7 @@ static PyObject *impl_pandas$io$parsers$arrow_parser_wrapper$$$function__5_read(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2};
-            tmp_kw_call_dict_value_1_1 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_kw_call_dict_value_1_1 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_dict_value_1_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6489,7 +6489,7 @@ static PyObject *impl_pandas$io$parsers$arrow_parser_wrapper$$$function__5_read(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3};
-            tmp_kw_call_dict_value_2_1 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_kw_call_dict_value_2_1 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_dict_value_2_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

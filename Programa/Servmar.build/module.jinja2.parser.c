@@ -207,7 +207,7 @@ static void createModuleCodeObjects(void) {
 static PyObject *MAKE_GENERATOR_jinja2$parser$$$function__15_parse_block$$$genexpr__1_genexpr(struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__12_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
@@ -31569,7 +31569,7 @@ static PyObject *impl_jinja2$parser$$$function__47_parse_subscribed(PyThreadStat
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__13_complex_call_helper_keywords_star_list(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__12_complex_call_helper_keywords_star_list(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

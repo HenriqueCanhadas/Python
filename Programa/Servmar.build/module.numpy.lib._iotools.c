@@ -169,7 +169,7 @@ static PyObject *MAKE_GENERATOR_numpy$lib$_iotools$$$function__29_easy_dtype$$$g
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_numpy$lib$_iotools$$$function__10__variablewidth_splitter();
@@ -18867,7 +18867,7 @@ static PyObject *impl_numpy$lib$_iotools$$$function__29_easy_dtype(PyThreadState
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_assign_source_4 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_4 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_4 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -19220,7 +19220,7 @@ static PyObject *impl_numpy$lib$_iotools$$$function__29_easy_dtype(PyThreadState
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2};
-            tmp_assign_source_10 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_10 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_10 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -19723,7 +19723,7 @@ static PyObject *impl_numpy$lib$_iotools$$$function__29_easy_dtype(PyThreadState
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3};
-            tmp_assign_source_15 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_15 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_15 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

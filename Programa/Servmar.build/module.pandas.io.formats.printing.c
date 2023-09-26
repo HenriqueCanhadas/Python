@@ -142,7 +142,7 @@ NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversio
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$formats$printing$$$function__10__justify(PyObject *annotations);
@@ -3271,7 +3271,7 @@ static PyObject *impl_pandas$io$formats$printing$$$function__3__pprint_seq(PyThr
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-                tmp_append_value_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+                tmp_append_value_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
             }
             if (tmp_append_value_1 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -4447,7 +4447,7 @@ static PyObject *impl_pandas$io$formats$printing$$$function__4__pprint_dict(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_kw_call_value_0_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_kw_call_value_0_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_value_0_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -4535,7 +4535,7 @@ static PyObject *impl_pandas$io$formats$printing$$$function__4__pprint_dict(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2, tmp_dircall_arg4_2};
-            tmp_kw_call_value_1_1 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_kw_call_value_1_1 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_value_1_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

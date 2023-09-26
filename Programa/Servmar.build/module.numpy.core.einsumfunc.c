@@ -141,16 +141,16 @@ static PyObject *MAKE_GENERATOR_numpy$core$einsumfunc$$$function__12__einsum_dis
 static PyObject *MAKE_GENERATOR_numpy$core$einsumfunc$$$function__13_einsum$$$genexpr__1_genexpr(struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__12_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_numpy$core$einsumfunc$$$function__10__einsum_path_dispatcher(PyObject *kw_defaults);
@@ -27452,7 +27452,7 @@ static PyObject *impl_numpy$core$einsumfunc$$$function__13_einsum(PyThreadState 
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -27975,7 +27975,7 @@ static PyObject *impl_numpy$core$einsumfunc$$$function__13_einsum(PyThreadState 
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2};
-            tmp_iter_arg_3 = impl___main__$$$function__13_complex_call_helper_keywords_star_list(tstate, dir_call_args);
+            tmp_iter_arg_3 = impl___main__$$$function__12_complex_call_helper_keywords_star_list(tstate, dir_call_args);
         }
         if (tmp_iter_arg_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -30483,7 +30483,7 @@ static PyObject *impl_numpy$core$einsumfunc$$$function__13_einsum(PyThreadState 
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3, tmp_dircall_arg3_3};
-            tmp_assign_source_68 = impl___main__$$$function__13_complex_call_helper_keywords_star_list(tstate, dir_call_args);
+            tmp_assign_source_68 = impl___main__$$$function__12_complex_call_helper_keywords_star_list(tstate, dir_call_args);
         }
         if (tmp_assign_source_68 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -30733,7 +30733,7 @@ static PyObject *impl_numpy$core$einsumfunc$$$function__13_einsum(PyThreadState 
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_4, tmp_dircall_arg2_4, tmp_dircall_arg3_4};
-            tmp_assign_source_69 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_assign_source_69 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_69 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -30871,7 +30871,7 @@ static PyObject *impl_numpy$core$einsumfunc$$$function__13_einsum(PyThreadState 
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_5, tmp_dircall_arg2_5, tmp_dircall_arg3_5, tmp_dircall_arg4_1};
-            tmp_assign_source_70 = impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
+            tmp_assign_source_70 = impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_70 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

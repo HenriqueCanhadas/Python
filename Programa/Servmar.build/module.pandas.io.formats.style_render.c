@@ -229,16 +229,16 @@ static PyObject *MAKE_GENERATOR_pandas$io$formats$style_render$$$function__36__p
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
@@ -3234,7 +3234,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__2__render(PyThr
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-            tmp_assattr_value_3 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+            tmp_assattr_value_3 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
         }
         if (tmp_assattr_value_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5263,7 +5263,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__3__render_html(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2};
-            tmp_dircall_arg2_1 = impl___main__$$$function__17_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
+            tmp_dircall_arg2_1 = impl___main__$$$function__16_complex_call_helper_dict_unpacking_checks(tstate, dir_call_args);
         }
         if (tmp_dircall_arg2_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5279,7 +5279,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__3__render_html(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5878,7 +5878,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__4__render_latex
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6183,7 +6183,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__5__render_strin
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6889,7 +6889,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__6__compute(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_assign_source_11 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_assign_source_11 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_11 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -27570,7 +27570,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__15__translate_l
 
                 {
                     PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-                    tmp_append_value_2 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                    tmp_append_value_2 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
                 }
                 if (tmp_append_value_2 == NULL) {
                     assert(HAS_ERROR_OCCURRED(tstate));
@@ -28783,7 +28783,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__15__translate_l
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_2};
-                tmp_append_value_3 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                tmp_append_value_3 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
             }
             if (tmp_append_value_3 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -29387,7 +29387,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__15__translate_l
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_3};
-                tmp_append_value_4 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                tmp_append_value_4 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
             }
             if (tmp_append_value_4 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -39797,7 +39797,7 @@ static PyObject *impl_pandas$io$formats$style_render$$$function__19__element(PyT
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-            tmp_return_value = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

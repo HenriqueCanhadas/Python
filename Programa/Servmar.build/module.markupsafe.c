@@ -160,7 +160,7 @@ static PyObject *MAKE_GENERATOR_markupsafe$$$function__8___mod__$$$genexpr__1_ge
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_markupsafe$$$function__10_join(PyObject *annotations, struct Nuitka_CellObject **closure);
@@ -712,7 +712,7 @@ static PyObject *impl_markupsafe$$$function__2__simple_escaping_wrapper$$$functi
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_args_element_value_8 = impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_8 = impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_8 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

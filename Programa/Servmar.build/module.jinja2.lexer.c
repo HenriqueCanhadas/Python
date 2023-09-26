@@ -192,7 +192,7 @@ static PyObject *MAKE_GENERATOR_jinja2$lexer$$$function__33_tokeniter$$$genobj__
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9__unpack_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13__unpack_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_jinja2$lexer$$$function__10_test(PyObject *annotations);
@@ -16892,7 +16892,7 @@ static PyObject *jinja2$lexer$$$function__33_tokeniter$$$genobj__1_tokeniter_con
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-            tmp_assign_source_29 = impl___main__$$$function__9__unpack_list(tstate, dir_call_args);
+            tmp_assign_source_29 = impl___main__$$$function__13__unpack_list(tstate, dir_call_args);
         }
         if (tmp_assign_source_29 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -17357,7 +17357,7 @@ static PyObject *jinja2$lexer$$$function__33_tokeniter$$$genobj__1_tokeniter_con
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2};
-            tmp_assign_source_31 = impl___main__$$$function__9__unpack_list(tstate, dir_call_args);
+            tmp_assign_source_31 = impl___main__$$$function__13__unpack_list(tstate, dir_call_args);
         }
         if (tmp_assign_source_31 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

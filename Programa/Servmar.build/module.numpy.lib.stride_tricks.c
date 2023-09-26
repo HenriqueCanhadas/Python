@@ -128,7 +128,7 @@ static PyObject *MAKE_GENERATOR_numpy$lib$stride_tricks$$$function__12_broadcast
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_numpy$lib$stride_tricks$$$function__10_broadcast_shapes();
@@ -5556,7 +5556,7 @@ static PyObject *impl_numpy$lib$stride_tricks$$$function__9__broadcast_shape(PyT
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_1};
-            tmp_assign_source_6 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_assign_source_6 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_assign_source_6 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

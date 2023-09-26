@@ -102,7 +102,7 @@ static PyObject *MAKE_GENERATOR_pandas$core$window$common$$$function__1_flex_bin
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9__unpack_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13__unpack_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$core$window$common$$$function__1_flex_binary_moment(PyObject *defaults, PyObject *annotations);
@@ -4071,7 +4071,7 @@ static PyObject *impl_pandas$core$window$common$$$function__1_flex_binary_moment
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2};
-            tmp_kw_call_arg_value_0_2 = impl___main__$$$function__9__unpack_list(tstate, dir_call_args);
+            tmp_kw_call_arg_value_0_2 = impl___main__$$$function__13__unpack_list(tstate, dir_call_args);
         }
         if (tmp_kw_call_arg_value_0_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

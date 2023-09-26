@@ -116,7 +116,7 @@ static PyObject *MAKE_GENERATOR_openpyxl$descriptors$serialisable$$$function__3_
 static PyObject *MAKE_GENERATOR_openpyxl$descriptors$serialisable$$$function__4___iter__$$$genobj__1___iter__(struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_openpyxl$descriptors$serialisable$$$function__10___copy__();
@@ -2439,7 +2439,7 @@ static PyObject *impl_openpyxl$descriptors$serialisable$$$function__2_from_tree(
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -8655,7 +8655,7 @@ static PyObject *impl_openpyxl$descriptors$serialisable$$$function__9___add__(Py
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

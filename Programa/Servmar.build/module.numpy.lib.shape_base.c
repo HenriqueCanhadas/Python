@@ -171,7 +171,7 @@ static PyObject *MAKE_GENERATOR_numpy$lib$shape_base$$$function__30_tile$$$genex
 static PyObject *MAKE_GENERATOR_numpy$lib$shape_base$$$function__30_tile$$$genexpr__2_genexpr(struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
@@ -3028,7 +3028,7 @@ static PyObject *impl_numpy$lib$shape_base$$$function__7_apply_along_axis(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_args_element_value_7 = impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_7 = impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_7 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -3654,7 +3654,7 @@ static PyObject *impl_numpy$lib$shape_base$$$function__7_apply_along_axis(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2, tmp_dircall_arg4_2};
-            tmp_args_element_value_11 = impl___main__$$$function__11_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_11 = impl___main__$$$function__8_complex_call_helper_pos_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_11 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

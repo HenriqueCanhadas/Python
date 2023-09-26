@@ -210,7 +210,7 @@ NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversio
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__12_complex_call_helper_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$parsers$base_parser$$$function__10__get_complex_date_index();
@@ -42478,7 +42478,7 @@ static PyObject *impl_pandas$io$parsers$base_parser$$$function__30__try_convert_
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_1};
-            tmp_assign_source_18 = impl___main__$$$function__13_complex_call_helper_keywords_star_list(tstate, dir_call_args);
+            tmp_assign_source_18 = impl___main__$$$function__12_complex_call_helper_keywords_star_list(tstate, dir_call_args);
         }
         if (tmp_assign_source_18 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

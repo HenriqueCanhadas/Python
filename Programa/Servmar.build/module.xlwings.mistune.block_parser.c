@@ -146,7 +146,7 @@ static PyObject *MAKE_GENERATOR_xlwings$mistune$block_parser$$$function__21__ite
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_xlwings$mistune$block_parser$$$function__10_get_block_quote_rules();
@@ -8485,7 +8485,7 @@ static PyObject *xlwings$mistune$block_parser$$$function__21__iter_render$$$geno
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_expression_value_10 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_expression_value_10 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_expression_value_10 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

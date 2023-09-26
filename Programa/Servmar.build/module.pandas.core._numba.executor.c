@@ -96,7 +96,7 @@ static void createModuleCodeObjects(void) {
 }
 
 // The module function declarations.
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$core$_numba$executor$$$function__1_make_looper();
@@ -909,7 +909,7 @@ static PyObject *impl_pandas$core$_numba$executor$$$function__1_make_looper$$$fu
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_iter_arg_2 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_iter_arg_2 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_iter_arg_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -1884,7 +1884,7 @@ static PyObject *impl_pandas$core$_numba$executor$$$function__1_make_looper$$$fu
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_iter_arg_2 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_iter_arg_2 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_iter_arg_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -2862,7 +2862,7 @@ static PyObject *impl_pandas$core$_numba$executor$$$function__2_generate_shared_
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_iter_arg_1 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_iter_arg_1 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_iter_arg_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -3083,7 +3083,7 @@ static PyObject *impl_pandas$core$_numba$executor$$$function__2_generate_shared_
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2};
-            tmp_iter_arg_2 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_iter_arg_2 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_iter_arg_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

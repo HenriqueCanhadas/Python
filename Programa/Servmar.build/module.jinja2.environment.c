@@ -275,10 +275,10 @@ static PyObject *MAKE_GENERATOR_jinja2$environment$$$function__66__buffered_gene
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9__unpack_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__13__unpack_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_list_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_jinja2$environment$$$function__10_lexer(PyObject *annotations);
@@ -7981,7 +7981,7 @@ static PyObject *impl_jinja2$environment$$$function__14__filter_test_common(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-            tmp_assign_source_9 = impl___main__$$$function__9__unpack_list(tstate, dir_call_args);
+            tmp_assign_source_9 = impl___main__$$$function__13__unpack_list(tstate, dir_call_args);
         }
         if (tmp_assign_source_9 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -8553,7 +8553,7 @@ static PyObject *impl_jinja2$environment$$$function__14__filter_test_common(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -21566,7 +21566,7 @@ static PyObject *impl_jinja2$environment$$$function__42_render(PyThreadState *ts
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_1 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_1 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -21749,7 +21749,7 @@ static PyObject *impl_jinja2$environment$$$function__42_render(PyThreadState *ts
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2};
-            tmp_args_element_value_2 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_2 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -22389,7 +22389,7 @@ static PyObject *jinja2$environment$$$function__43_render_async$$$coroutine__1_r
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_1 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_1 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -23114,7 +23114,7 @@ static PyObject *impl_jinja2$environment$$$function__44_stream(PyThreadState *ts
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_1 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_1 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -23657,7 +23657,7 @@ static PyObject *jinja2$environment$$$function__45_generate$$$genobj__1_generate
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_2 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_2 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -24239,7 +24239,7 @@ static PyObject *jinja2$environment$$$function__45_generate$$$genobj__1_generate
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_value_value_1 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_value_value_1 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_value_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -24909,7 +24909,7 @@ static PyObject *jinja2$environment$$$function__46_generate_async$$$asyncgen__1_
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_1 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_1 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -31285,7 +31285,7 @@ static PyObject *impl_jinja2$environment$$$function__62___call__(PyThreadState *
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_1 = impl___main__$$$function__10_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
+            tmp_args_element_value_1 = impl___main__$$$function__6_complex_call_helper_star_list_star_dict(tstate, dir_call_args);
         }
         if (tmp_args_element_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

@@ -111,7 +111,7 @@ static void createModuleCodeObjects(void) {
 static PyObject *MAKE_GENERATOR_pandas$io$json$_normalize$$$function__6_json_normalize$$$genexpr__1_genexpr(struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$json$_normalize$$$function__1_convert_to_line_delimits(PyObject *annotations);
@@ -3836,7 +3836,7 @@ static PyObject *impl_pandas$io$json$_normalize$$$function__4__normalise_json_or
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-            tmp_return_value = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

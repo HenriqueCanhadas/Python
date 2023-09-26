@@ -135,13 +135,13 @@ static void createModuleCodeObjects(void) {
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__14_complex_call_helper_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9_complex_call_helper_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$xml$$$function__10__validate_names(PyObject *annotations);
@@ -2072,7 +2072,7 @@ static PyObject *impl_pandas$io$xml$$$function__3__parse_nodes(PyThreadState *ts
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-                tmp_append_value_1 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                tmp_append_value_1 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
             }
             if (tmp_append_value_1 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -4126,7 +4126,7 @@ static PyObject *impl_pandas$io$xml$$$function__3__parse_nodes(PyThreadState *ts
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_2};
-                tmp_append_value_4 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                tmp_append_value_4 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
             }
             if (tmp_append_value_4 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -4797,7 +4797,7 @@ static PyObject *impl_pandas$io$xml$$$function__3__parse_nodes(PyThreadState *ts
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_3};
-                tmp_append_value_5 = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                tmp_append_value_5 = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
             }
             if (tmp_append_value_5 == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));
@@ -21608,7 +21608,7 @@ static PyObject *impl_pandas$io$xml$$$function__19__data_to_frame(PyThreadState 
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_assign_source_7 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_assign_source_7 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_7 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -23111,7 +23111,7 @@ static PyObject *impl_pandas$io$xml$$$function__20__parse(PyThreadState *tstate,
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__14_complex_call_helper_keywords_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__9_complex_call_helper_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

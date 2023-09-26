@@ -122,7 +122,7 @@ static PyObject *MAKE_GENERATOR_openpyxl$worksheet$_read_only$$$function__5__cel
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_openpyxl$worksheet$_read_only$$$function__10_reset_dimensions();
@@ -4209,7 +4209,7 @@ static PyObject *impl_openpyxl$worksheet$_read_only$$$function__6__get_row(PyThr
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_ass_subvalue_2 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_ass_subvalue_2 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

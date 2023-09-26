@@ -94,13 +94,13 @@ static void createModuleCodeObjects(void) {
 }
 
 // The module function declarations.
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__14_complex_call_helper_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__9_complex_call_helper_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__10_complex_call_helper_pos_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_xlwings$pro$reports$main$$$function__1_parse_single_placeholder();
@@ -4569,7 +4569,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_assign_source_55 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_55 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_55 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6054,7 +6054,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2};
-            tmp_assattr_value_3 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assattr_value_3 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assattr_value_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6245,7 +6245,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3};
-            tmp_kw_call_value_0_2 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_kw_call_value_0_2 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_value_0_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6424,7 +6424,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_4, tmp_dircall_arg2_4};
-            tmp_assattr_value_5 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assattr_value_5 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assattr_value_5 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -8500,7 +8500,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_5, tmp_dircall_arg2_5};
-            tmp_assign_source_103 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_103 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_103 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -10104,7 +10104,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_6, tmp_dircall_arg2_6};
-            tmp_assattr_target_6 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assattr_target_6 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assattr_target_6 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -12016,7 +12016,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_7, tmp_dircall_arg2_7};
-            tmp_assign_source_144 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_assign_source_144 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_144 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -12186,7 +12186,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__2_render_sheet(PyThre
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_8, tmp_dircall_arg2_8};
-            tmp_kw_call_value_0_3 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_kw_call_value_0_3 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_kw_call_value_0_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -13447,7 +13447,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__3_create_report(PyThr
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_return_value = impl___main__$$$function__14_complex_call_helper_keywords_star_dict(tstate, dir_call_args);
+            tmp_return_value = impl___main__$$$function__9_complex_call_helper_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_return_value == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -13748,7 +13748,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__4_render_template(PyT
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_assign_source_1 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_assign_source_1 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -13860,7 +13860,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__4_render_template(PyT
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2};
-            tmp_assign_source_3 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_assign_source_3 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_assign_source_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -14037,7 +14037,7 @@ static PyObject *impl_xlwings$pro$reports$main$$$function__4_render_template(PyT
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3, tmp_dircall_arg3_3};
-            tmp_call_result_2 = impl___main__$$$function__5_complex_call_helper_pos_star_dict(tstate, dir_call_args);
+            tmp_call_result_2 = impl___main__$$$function__10_complex_call_helper_pos_star_dict(tstate, dir_call_args);
         }
         if (tmp_call_result_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));

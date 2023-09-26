@@ -133,7 +133,7 @@ static PyObject *MAKE_GENERATOR_pandas$io$formats$css$$$function__10_atomize$$$g
 static PyObject *MAKE_GENERATOR_pandas$io$formats$css$$$function__11_parse$$$genobj__1_parse(struct Nuitka_CellObject **closure);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4__unpack_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
 static PyObject *MAKE_FUNCTION_pandas$io$formats$css$$$function__10_atomize(PyObject *annotations);
@@ -12623,7 +12623,7 @@ PyObject *modulecode_pandas$io$formats$css(PyThreadState *tstate, PyObject *modu
 
             {
                 PyObject *dir_call_args[] = {tmp_dircall_arg1_1};
-                tmp_dictset_value = impl___main__$$$function__7__unpack_dict(tstate, dir_call_args);
+                tmp_dictset_value = impl___main__$$$function__4__unpack_dict(tstate, dir_call_args);
             }
             if (tmp_dictset_value == NULL) {
                 assert(HAS_ERROR_OCCURRED(tstate));

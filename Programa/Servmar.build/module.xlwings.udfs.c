@@ -225,16 +225,16 @@ static PyObject *MAKE_GENERATOR_xlwings$udfs$$$function__28_generate_vba_wrapper
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__1__mro_entries_conversion(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__4_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__11_complex_call_helper_pos_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__6_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__7_complex_call_helper_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(PyThreadState *tstate, PyObject **python_pars);
 
 
-NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__18_complex_call_helper_pos_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
+NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__17_complex_call_helper_pos_keywords_star_list(PyThreadState *tstate, PyObject **python_pars);
 
 
 NUITKA_CROSS_MODULE PyObject *impl___main__$$$function__2_complex_call_helper_star_list(PyThreadState *tstate, PyObject **python_pars);
@@ -936,7 +936,7 @@ static PyObject *xlwings$udfs$$$function__1_async_thread$$$coroutine__1_async_th
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_2 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_args_element_value_2 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_args_element_value_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -1816,7 +1816,7 @@ static PyObject *xlwings$udfs$$$function__2_async_thread_nocaller$$$coroutine__1
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_2 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_args_element_value_2 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_args_element_value_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5550,7 +5550,7 @@ static PyObject *impl_xlwings$udfs$$$function__7_xlfunc$$$function__1_inner(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_ass_subvalue_2 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_ass_subvalue_2 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5647,7 +5647,7 @@ static PyObject *impl_xlwings$udfs$$$function__7_xlfunc$$$function__1_inner(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_1, tmp_dircall_arg4_1};
-            tmp_ass_subvalue_3 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_ass_subvalue_3 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_3 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5744,7 +5744,7 @@ static PyObject *impl_xlwings$udfs$$$function__7_xlfunc$$$function__1_inner(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_3, tmp_dircall_arg2_3, tmp_dircall_arg3_2, tmp_dircall_arg4_2};
-            tmp_ass_subvalue_4 = impl___main__$$$function__8_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
+            tmp_ass_subvalue_4 = impl___main__$$$function__5_complex_call_helper_pos_keywords_star_dict(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_4 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -5836,7 +5836,7 @@ static PyObject *impl_xlwings$udfs$$$function__7_xlfunc$$$function__1_inner(PyTh
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_4, tmp_dircall_arg2_4};
-            tmp_ass_subvalue_5 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_ass_subvalue_5 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_ass_subvalue_5 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -6354,7 +6354,7 @@ static PyObject *impl_xlwings$udfs$$$function__8_xlsub$$$function__1_inner(PyThr
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1};
-            tmp_called_value_1 = impl___main__$$$function__6_complex_call_helper_star_dict(tstate, dir_call_args);
+            tmp_called_value_1 = impl___main__$$$function__7_complex_call_helper_star_dict(tstate, dir_call_args);
         }
         if (tmp_called_value_1 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -9350,7 +9350,7 @@ static PyObject *xlwings$udfs$$$function__14__com$$$coroutine__1__com_context(Py
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_1, tmp_dircall_arg2_1, tmp_dircall_arg3_1};
-            tmp_args_element_value_2 = impl___main__$$$function__4_complex_call_helper_pos_star_list(tstate, dir_call_args);
+            tmp_args_element_value_2 = impl___main__$$$function__11_complex_call_helper_pos_star_list(tstate, dir_call_args);
         }
         if (tmp_args_element_value_2 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
@@ -9937,7 +9937,7 @@ static PyObject *xlwings$udfs$$$function__14__com$$$coroutine__1__com_context(Py
 
         {
             PyObject *dir_call_args[] = {tmp_dircall_arg1_2, tmp_dircall_arg2_2, tmp_dircall_arg3_2, tmp_dircall_arg4_1};
-            tmp_expression_value_10 = impl___main__$$$function__18_complex_call_helper_pos_keywords_star_list(tstate, dir_call_args);
+            tmp_expression_value_10 = impl___main__$$$function__17_complex_call_helper_pos_keywords_star_list(tstate, dir_call_args);
         }
         if (tmp_expression_value_10 == NULL) {
             assert(HAS_ERROR_OCCURRED(tstate));
