@@ -14,6 +14,8 @@ def carregar_excel():
         global dataframe
         dataframe = pd.read_excel(file_path)
         status_label.config(text="Arquivo Excel Carregado.")
+        print("Arquivo Excel Carregado.")
+        print("-" * 100)
 
 def rodar_programa():
     global file_path 
@@ -24,6 +26,8 @@ def rodar_programa():
 
     if file_path == "":
         status_label.config(text="Nenhum Excel Carregado!")
+        print("Nenhum Excel Carregado!")
+        print("-" * 100)
         return
 
     wb_xlwings = xw.Book(file_path)
@@ -150,17 +154,17 @@ def salvar_excel():
 
     if file_path == "":
         status_label.config(text="Nenhum Excel Carregado!")
+        print("Nenhum Excel Carregado!")
+        print("-" * 100)
         return
     
     if file_path:
         status_label.config(text="Preparando para salvar o arquivo.")
 
-        print(f"Abrindo o arquivo Excel existente em: {file_path}")
+        print(f"Abrindo o arquivo Excel existente na pasta:{file_path}")
         workbook_openpyxl = openpyxl.load_workbook(file_path)
 
         sheet = workbook_openpyxl['FINAL']
-
-        print(valores_cliente)
 
         while len(valores_cliente) > 0:
             if len(valores_cliente) > 0:
@@ -218,27 +222,31 @@ def salvar_excel():
         workbook_openpyxl.save(save_path)
         status_label.config(text="Excel salvo com sucesso!")
 
+        print("Excel salvo com sucesso!")
         print("-" * 100)
-        print("Processo concluído com sucesso.")
 
 root = tk.Tk()
 root.title("SERVMAR")
 
 root.minsize(250, 250)
 
-root.configure(bg="lightblue")
+corf = "#011246"
+corb = "#CD0232"
+cort = "#FE9B67"
+
+root.configure(bg=corf)
 fonte_negrito = font.Font(family="Helvetica", size=10, weight="bold")
 
-load_button = tk.Button(root, text="Carregar Excel", command=carregar_excel, bg="white", font=fonte_negrito)
+load_button = tk.Button(root, text="Carregar Excel", command=carregar_excel, bg=corb, font=fonte_negrito, fg=cort)
 load_button.pack(pady=20)
 
-load_button = tk.Button(root, text="Rodar Programa", command=rodar_programa, bg="white", font=fonte_negrito)
+load_button = tk.Button(root, text="Rodar Programa", command=rodar_programa, bg=corb, font=fonte_negrito, fg=cort)
 load_button.pack(pady=20)
 
-save_button = tk.Button(root, text="Salvar Excel", command=salvar_excel, bg="white", font=fonte_negrito)
+save_button = tk.Button(root, text="Salvar Excel", command=salvar_excel, bg=corb, font=fonte_negrito, fg=cort)
 save_button.pack(pady=20)
 
-status_label = tk.Label(root, text="", background="lightblue", font=fonte_negrito)
+status_label = tk.Label(root, text="", background=corf, font=fonte_negrito, fg=cort)
 status_label.pack()
 
 root.mainloop()
