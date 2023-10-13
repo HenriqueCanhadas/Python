@@ -3,7 +3,6 @@ from tkinter import filedialog
 import xlwings as xw
 import openpyxl
 import pandas as pd
-from tkinter import font
 import customtkinter 
 
 file_path = ""
@@ -34,7 +33,7 @@ def rodar_programa():
     wb_xlwings = xw.Book(file_path)
 
     status_label.config(text="Rodando o Programa")
-    root.update() 
+    janela.update() 
 
     valores_cliente=[]
     valores_xlwings = []
@@ -226,37 +225,23 @@ def salvar_excel():
         print("Excel salvo com sucesso!")
         print("-" * 100)
 
-
-
 janela=customtkinter.CTk()
 janela.geometry("250x250")
 janela.title("SERVMAR")
 
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("dark-blue")
 
-root = tk.Tk()
-root.title("SERVMAR")
-
-root.minsize(250, 250)
-
-corf = "#011246"
-corb = "#CD0232"
-cort = "#FE9B67"
-
-root.configure(bg=corf)
-fonte_negrito = font.Font(family="Helvetica", size=10, weight="bold")
-
-load_button = tk.Button(root, text="Carregar Excel", command=carregar_excel, bg=corb, font=fonte_negrito, fg=cort)
+load_button = customtkinter.CTkButton(janela, text="Carregar Excel", command=carregar_excel)
 load_button.pack(pady=20)
 
-load_button = tk.Button(root, text="Rodar Programa", command=rodar_programa, bg=corb, font=fonte_negrito, fg=cort)
-load_button.pack(pady=20)
+run_button = customtkinter.CTkButton(janela, text="Rodar Programa", command=rodar_programa)
+run_button.pack(pady=20)
 
-save_button = tk.Button(root, text="Salvar Excel", command=salvar_excel, bg=corb, font=fonte_negrito, fg=cort)
+save_button = customtkinter.CTkButton(janela, text="Salvar Excel", command=salvar_excel)
 save_button.pack(pady=20)
 
-status_label = tk.Label(root, text="", background=corf, font=fonte_negrito, fg=cort)
+status_label = customtkinter.CTkLabel(janela, text="")
 status_label.pack()
-
-root.mainloop()
 
 janela.mainloop()
