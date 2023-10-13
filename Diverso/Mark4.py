@@ -241,7 +241,7 @@ run_button.pack(pady=20)
 save_button = customtkinter.CTkButton(janela, text="Salvar Excel", command=salvar_excel)
 save_button.pack(pady=20)
 
-status_label = customtkinter.CTkLabel(janela, text="")
+status_label = tk.Label(janela, text="")
 status_label.pack()
 
 janela.mainloop()
