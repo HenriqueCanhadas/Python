@@ -30,8 +30,4 @@ text.pack()
 text = customtkinter.CTkLabel(tabview.tab("Endereço"),text="Grumixamas")
 text.pack()
 
-
-
-
-
 janela.mainloop()

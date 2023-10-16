@@ -18,6 +18,7 @@ def nova_tela():
     nova_janela = customtkinter.CTkToplevel(janela)
     nova_janela.geometry("200x200")
 
+
 btn_novatela = customtkinter.CTkButton(janela, text="Nova Janela", command=nova_tela).place(x=300, y =100)
 
 

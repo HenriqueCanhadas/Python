@@ -9,11 +9,13 @@ file_path = ""
 
 def carregar_excel():
     global file_path
+    global text
     file_path = filedialog.askopenfilename(filetypes=[("Arquivos Excel", "*.xlsx *.xls")])
     if file_path:
         global dataframe
         dataframe = pd.read_excel(file_path)
-        status_label.config(text="Arquivo Excel Carregado.")
+        text = customtkinter.StringVar(value="Arquivo Excel Carregado.")
+        texto = customtkinter.CTkLabel(janela, textvariable=text, width=200, height=25, fg_color="blue").pack()
         print("Arquivo Excel Carregado.")
         print("-" * 100)
 
@@ -25,15 +27,14 @@ def rodar_programa():
     global valores_cliente
 
     if file_path == "":
-        status_label.config(text="Nenhum Excel Carregado!")
+        customtkinter.CTkLabel(janela,text="Nenhum Excel Carregado!").pack()
         print("Nenhum Excel Carregado!")
         print("-" * 100)
         return
 
     wb_xlwings = xw.Book(file_path)
 
-    status_label.config(text="Rodando o Programa")
-    janela.update() 
+    customtkinter.CTkLabel(janela,text="Rodando o Programa").pack()
 
     valores_cliente=[]
     valores_xlwings = []
@@ -138,7 +139,7 @@ def rodar_programa():
 
         print("-" * 100) 
 
-    status_label.config(text="Todos os dados foram Armazenados")
+    customtkinter.CTkLabel(janela,text="Todos os dados foram Armazenados").pack()
 
     print('Todos os dados foram Armazenados')
 
@@ -153,13 +154,13 @@ def salvar_excel():
     global status_label
 
     if file_path == "":
-        status_label.config(text="Nenhum Excel Carregado!")
+        customtkinter.CTkLabel(janela,text="Nenhum Excel Carregado!").pack()
         print("Nenhum Excel Carregado!")
         print("-" * 100)
         return
     
     if file_path:
-        status_label.config(text="Preparando para salvar o arquivo.")
+        customtkinter.CTkLabel(janela,text="Preparando para salvar o arquivo.").pack()
 
         print(f"Abrindo o arquivo Excel existente na pasta:{file_path}")
         workbook_openpyxl = openpyxl.load_workbook(file_path)
@@ -220,7 +221,7 @@ def salvar_excel():
     save_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Arquivos Excel", "*.xlsx *.xls")])
     if save_path:
         workbook_openpyxl.save(save_path)
-        status_label.config(text="Excel salvo com sucesso!")
+        customtkinter.CTkLabel(janela,text="Excel salvo com sucesso!").pack()
 
         print("Excel salvo com sucesso!")
         print("-" * 100)
@@ -241,7 +242,7 @@ run_button.pack(pady=20)
 save_button = customtkinter.CTkButton(janela, text="Salvar Excel", command=salvar_excel)
 save_button.pack(pady=20)
 
-status_label = tk.Label(janela, text="")
-status_label.pack()
+text = customtkinter.StringVar(value="")
+texto = customtkinter.CTkLabel(janela, textvariable=text, width=200, height=25, fg_color="blue").pack()
 
 janela.mainloop()

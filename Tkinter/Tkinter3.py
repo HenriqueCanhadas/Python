@@ -13,14 +13,11 @@ textbox.pack()
 textbox.insert("0.0", "Titulo do seu texto" + "Teste Teste 123 123")
 
 def abrir():
-    dialog = customtkinter.CTkInputDialog(title="Caixa de dialogo")
+    dialog = customtkinter.CTkInputDialog(title="Caixa de dialogo", text="Digite sua Idade:")
+    teste=(dialog.get_input())
+    print(teste)
 
 btn = customtkinter.CTkButton(janela, text="Caixa de Dialogo", command=abrir)
 btn.pack()
-
-
-
-
-
 
 janela.mainloop()
