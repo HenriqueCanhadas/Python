@@ -4,18 +4,33 @@ import xlwings as xw
 import openpyxl
 import pandas as pd
 import customtkinter 
+import threading
 
 file_path = ""
 
+#-----------------------------
+
+def carregar_programa():
+    thread = threading.Thread(target=carregar_excel)
+    thread.start()
+
+def iniciar_programa():
+    thread = threading.Thread(target=rodar_programa)
+    thread.start()
+
+def salvar_programa():
+    thread = threading.Thread(target=salvar_excel)
+    thread.start()
+
+#-----------------------------
+
 def carregar_excel():
     global file_path
-    global text
     file_path = filedialog.askopenfilename(filetypes=[("Arquivos Excel", "*.xlsx *.xls")])
     if file_path:
         global dataframe
         dataframe = pd.read_excel(file_path)
-        text = customtkinter.StringVar(value="Arquivo Excel Carregado.")
-        texto = customtkinter.CTkLabel(janela, textvariable=text, width=200, height=25, fg_color="blue").pack()
+        status_label.config(text="Arquivo Excel Carregado.")
         print("Arquivo Excel Carregado.")
         print("-" * 100)
 
@@ -27,14 +42,15 @@ def rodar_programa():
     global valores_cliente
 
     if file_path == "":
-        customtkinter.CTkLabel(janela,text="Nenhum Excel Carregado!").pack()
+        status_label.config(text="Nenhum Excel Carregado!")
         print("Nenhum Excel Carregado!")
         print("-" * 100)
         return
+    
+    status_label.config(text="Rodando o Programa")
+    janela.update() 
 
-    wb_xlwings = xw.Book(file_path)
-
-    customtkinter.CTkLabel(janela,text="Rodando o Programa").pack()
+    wb_xlwings = xw.Book(file_path) 
 
     valores_cliente=[]
     valores_xlwings = []
@@ -139,7 +155,7 @@ def rodar_programa():
 
         print("-" * 100) 
 
-    customtkinter.CTkLabel(janela,text="Todos os dados foram Armazenados").pack()
+    status_label.config(text="Todos os dados foram Armazenados")
 
     print('Todos os dados foram Armazenados')
 
@@ -154,13 +170,13 @@ def salvar_excel():
     global status_label
 
     if file_path == "":
-        customtkinter.CTkLabel(janela,text="Nenhum Excel Carregado!").pack()
+        status_label.config(text="Nenhum Excel Carregado!")
         print("Nenhum Excel Carregado!")
         print("-" * 100)
         return
     
     if file_path:
-        customtkinter.CTkLabel(janela,text="Preparando para salvar o arquivo.").pack()
+        status_label.config(text="Preparando para salvar o arquivo.")
 
         print(f"Abrindo o arquivo Excel existente na pasta:{file_path}")
         workbook_openpyxl = openpyxl.load_workbook(file_path)
@@ -221,28 +237,30 @@ def salvar_excel():
     save_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Arquivos Excel", "*.xlsx *.xls")])
     if save_path:
         workbook_openpyxl.save(save_path)
-        customtkinter.CTkLabel(janela,text="Excel salvo com sucesso!").pack()
+        status_label.config(text="Excel salvo com sucesso!")
 
         print("Excel salvo com sucesso!")
         print("-" * 100)
 
+#-----------------------------
+
 janela=customtkinter.CTk()
-janela.geometry("250x250")
+janela.geometry("300x250")
 janela.title("SERVMAR")
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
 
-load_button = customtkinter.CTkButton(janela, text="Carregar Excel", command=carregar_excel)
+load_button = customtkinter.CTkButton(janela, text="Carregar Excel", command=carregar_programa)
 load_button.pack(pady=20)
 
-run_button = customtkinter.CTkButton(janela, text="Rodar Programa", command=rodar_programa)
+run_button = customtkinter.CTkButton(janela, text="Rodar Programa", command=iniciar_programa)
 run_button.pack(pady=20)
 
-save_button = customtkinter.CTkButton(janela, text="Salvar Excel", command=salvar_excel)
+save_button = customtkinter.CTkButton(janela, text="Salvar Excel", command=salvar_programa)
 save_button.pack(pady=20)
 
-text = customtkinter.StringVar(value="")
-texto = customtkinter.CTkLabel(janela, textvariable=text, width=200, height=25, fg_color="blue").pack()
+status_label = tk.Label(janela, text="",bg="#242424",fg="white", font=("Arial", 15))
+status_label.pack(pady=5)
 
 janela.mainloop()
