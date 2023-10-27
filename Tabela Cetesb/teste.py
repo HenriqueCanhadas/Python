@@ -1,5 +1,4 @@
 import openpyxl
-from datetime import datetime
 
 workbook = openpyxl.load_workbook('Tabela Cetesb/arquivoteste.xlsx')
 
@@ -58,14 +57,13 @@ for row in sheet.iter_rows(min_row=7, max_row=sheet.max_row, min_col=2, max_col=
     for cell in row:
         # Verifique se o valor da coluna B é None
         if cell.column == 2:  # Coluna B
-            #if cell.value and (cell.value is None or not isinstance(cell.value, datetime.datetime())):
-            if not isinstance(cell.value, datetime.datetime):
+            if cell.value is None:
                 # Encontre o próximo valor nas colunas C (3) e D (4) na mesma linha
                 valor_coluna_C = None
                 valor_coluna_D = None
                 for i in range(1, len(row)):
                     if row[i].column == 3:  # Coluna C
-                        valor_coluna_C = row[i].value
+                        valor_coluna_C  = row[i].value
                     elif row[i].column == 4:  # Coluna D
                         valor_coluna_D = row[i].value
 
@@ -121,6 +119,15 @@ print(cas)
 quantidadeb = len(cas)
 
 print(quantidadeb)
+
+print(linhaParaTerminal)
+
+
+print(nomes_parametros)
+
+print(linhaParaTerminal)
+
+print(nomes_quimicos)
 
 print(linhaParaTerminal)
 
