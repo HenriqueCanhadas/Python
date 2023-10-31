@@ -3,9 +3,9 @@ from openpyxl.styles import PatternFill
 from openpyxl.styles import Alignment
 from openpyxl.utils import get_column_letter
 
-workbook = openpyxl.load_workbook('Tabela Cetesb/arquivoteste.xlsx')
+workbook = openpyxl.load_workbook('Tabela Cetesb/DD-125-2021-E-Atualizacao-dos-Valores-Orientadores-paa-solo-e-aguas-subterraneas.xlsx')
 
-sheet = workbook['Tabela']
+sheet = workbook['Table 2']
 
 linhaParaTerminal = ("*"*200)
 
@@ -57,8 +57,10 @@ def obter_valores():
         for cell in row:
                 if cell.value is not None:
                     if "VRQ – Valor de Referência de Qualidade; VP – Valor de Prevenção; VI – Valor de Intervenção" in str(cell.value):
-                        break  
-                nomes_quimicos.append(cell.value)
+                        break
+                    nomes_quimicos.append(cell.value)
+    
+    nova= [nome if nome in nomes else nome.replace(" ", "") for nome in nomes_quimicos]
 
     #Laço para pegar os valores da celula B,C,D
     for row in sheet.iter_rows(min_row=7, max_row=sheet.max_row, min_col=2, max_col=4):  #min_col=2 == B, max_col=4 == D
@@ -193,6 +195,12 @@ quantidade = len(vl_aguasub)
 
 print(quantidade)
 
+print(linhaParaTerminal)
+
+print(nomes_quimicos)
+
+print(linhaParaTerminal)
+
 #Fecha o Arquivo teste
 workbook.close()
 
@@ -203,6 +211,8 @@ workbook = openpyxl.Workbook()
 sheet = workbook.active
 
 fill = PatternFill(start_color='FFFF00', end_color='FFFF00', fill_type='solid')
+
+nomes_quimicos = [nome if nome in nomes else nome.replace(" ", "") for nome in nomes_quimicos]
 
 # Adicionar os valores à planilha
 for i, valor in enumerate(nomes_quimicos):
@@ -253,7 +263,7 @@ while vl_residencial:
     # Insira o valor na célula da coluna D e vá para a próxima linha
     sheet.cell(row=linha_atual, column=4, value=valor)
     linha_atual += 1
-    print(f"Inserindo '{valor}' na célula B{linha_atual - 1}")
+    print(f"Inserindo '{valor}' na célula D{linha_atual - 1}")
 
 # Reinicie a linha atual para a coluna C (vl_residencial)
 linha_atual = 1
@@ -267,7 +277,7 @@ while vl_industrial:
     # Insira o valor na célula da coluna C e vá para a próxima linha
     sheet.cell(row=linha_atual, column=5, value=valor)
     linha_atual += 1
-    print(f"Inserindo '{valor}' na célula C{linha_atual - 1}")
+    print(f"Inserindo '{valor}' na célula E{linha_atual - 1}")
 
 linha_atual = 1
 
@@ -280,31 +290,31 @@ while vl_aguasub:
     if valor == "20 (b)":
         for _ in range(2):
             sheet.cell(row=linha_atual, column=6, value=valor)
-            print(f"Inserindo '{valor}' 3 vezes na célula B{linha_atual}")
+            print(f"Inserindo '{valor}' 3 vezes na célula F{linha_atual}")
             linha_atual += 1
     
     if valor == "50 (b)":
         for _ in range(1):
             sheet.cell(row=linha_atual, column=6, value=valor)
-            print(f"Inserindo '{valor}' 3 vezes na célula B{linha_atual}")
+            print(f"Inserindo '{valor}' 3 vezes na célula F{linha_atual}")
             linha_atual += 1
 
     if valor == "0,03 (b)":
         for _ in range(1):
             sheet.cell(row=linha_atual, column=6, value=valor)
-            print(f"Inserindo '{valor}' 3 vezes na célula B{linha_atual}")
+            print(f"Inserindo '{valor}' 3 vezes na célula F{linha_atual}")
             linha_atual += 1
 
     if valor == "1 (b)":
         for _ in range(3):
             sheet.cell(row=linha_atual, column=6, value=valor)
-            print(f"Inserindo '{valor}' 3 vezes na célula B{linha_atual}")
+            print(f"Inserindo '{valor}' 3 vezes na célula F{linha_atual}")
             linha_atual += 1
     
     else:
         # Insira o valor na célula da coluna B e vá para a próxima linha
         sheet.cell(row=linha_atual, column=6, value=valor)
-        print(f"Inserindo '{valor}' na célula B{linha_atual}")
+        print(f"Inserindo '{valor}' na célula F{linha_atual}")
         linha_atual += 1
 
 

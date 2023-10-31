@@ -13,6 +13,15 @@ id_parametros = []
 
 def coletar_dados():
     global workbook
+
+            # Itere pelas células na coluna D
+    for row in sheet.iter_rows(min_row=2, min_col=4, max_col=4):  # Assume que a primeira linha é a linha de cabeçalho
+        for cell in row:
+        # Verifique se a célula contém um valor de texto
+            if cell.value is not None and isinstance(cell.value, str):
+            # Remova os espaços em branco da célula
+                cell.value = cell.value.replace(" ", "")
+
     for row in range(2, sheet.max_row + 1):  # Note o "+ 1" para incluir a última linha.
         cell1 = sheet.cell(row=row, column=1).value
         cell2 = sheet.cell(row=row + 1, column=1).value
@@ -44,7 +53,7 @@ def criar_excel():
 
     tamanho_lista = max(len(id), len(tipo))
 
-    df = pd.DataFrame({'cont': range(tamanho_lista), 'Id Amostra': id, 'Tipo': tipo})
+    df = pd.DataFrame({'cont': range(tamanho_lista), 'Id Amostra': id, 'Tipo': tipo, 'Data':data})
 
     # Salvar o DataFrame em um arquivo Excel
     arquivo_excel = 'TestePivot/TesteExcel.xlsx'
@@ -58,7 +67,7 @@ def criar_excel():
 
 
     # Salvar o DataFrame em um arquivo Excel
-    arquivo_excel = 'TestePivot/TesteExcel17.xlsx'
+    arquivo_excel = 'TestePivot/TesteExcel.xlsx'
     df.to_excel(arquivo_excel, index=False)
 
 
