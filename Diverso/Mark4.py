@@ -175,6 +175,32 @@ def salvar_excel():
         print("-" * 100)
         return
     
+    try:
+        if valores_cliente is None:
+            status_label.config(text="Programa não foi Rodado!")
+            print("Programa não foi Rodado!")
+            print("-" * 100)
+            print("teste")
+            return
+    except NameError:
+        status_label.config(text="Programa não foi Rodado!")
+        print("Programa não foi Rodado!")
+        print("-" * 100)
+        return
+
+    linha=72
+    while True:
+        dialog = customtkinter.CTkInputDialog(title="Caixa de dialogo", text="Digite a partir de qual linha seja inserirdo os dados:")
+        linha_text = dialog.get_input()
+
+        try:        
+            if linha_text is None:
+                break
+            linha = int(linha_text)
+            break  # Sai do loop se a conversão for bem-sucedida
+        except ValueError as e:
+            print("O valor não pode ser convertido para um número inteiro. Tente novamente.")
+    
     if file_path:
         status_label.config(text="Preparando para salvar o arquivo.")
 
@@ -195,8 +221,6 @@ def salvar_excel():
                 sheet['J20'] = numprojeto
                 sheet['C22'] = endeprojeto
                 sheet['J24'] = numos
-
-        linha = 72
 
         while len(valores_xlwings) > 0 and len(valores_workbook_openpyxl) > 0:
             if len(valores_xlwings) > 0:
@@ -245,11 +269,15 @@ def salvar_excel():
 #-----------------------------
 
 janela=customtkinter.CTk()
-janela.geometry("300x250")
+janela.geometry("300x280")
 janela.title("SERVMAR")
+janela.resizable(width=False, height=False)
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
+
+cabecalho= customtkinter.CTkLabel(janela, text="RELATÓRIO DE ENSAIO E AMOSTRAGEM",text_color="#1e55d2",font=("Arial", 14))
+cabecalho.pack()
 
 load_button = customtkinter.CTkButton(janela, text="Carregar Excel", command=carregar_programa)
 load_button.pack(pady=20)
