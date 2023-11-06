@@ -11,7 +11,6 @@ sheet = workbook['TESTEGUIA']
 # Defina a quantidade de colunas a serem inseridas
 num_colunas_inserir = 10  # Altere o número conforme necessário
 
-
 # Mesclar as células nas linhas 5 e 6
 sheet.merge_cells('E5:F5')
 sheet.merge_cells('E6:F6')
