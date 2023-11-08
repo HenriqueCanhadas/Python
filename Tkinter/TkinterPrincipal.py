@@ -244,6 +244,9 @@ def botao_youtube():
     nova_janela.geometry("250x250")
     nova_janela.title("Botão Youtube")
 
+    icone_path = r'C:\Users\henrique.canhadas\OneDrive - Servmar Ambientais\Documentos\Codigos\GitHub\Programa Servmar\Testes\servmarico.ico'
+    nova_janela.iconbitmap(icone_path)
+
     img=customtkinter.CTkImage(light_image=Image.open("Tkinter/youtubelogo.png"), dark_image=Image.open("Tkinter/youtubelogo.png"), size=(50,50))
 
     customtkinter.CTkButton(nova_janela,
@@ -261,6 +264,7 @@ def botao_youtube():
                             state="normal",
                             image=img
                             ).pack(pady=30)
+                            
    
     pass
 
@@ -278,6 +282,7 @@ def slider():
     customtkinter.CTkLabel(nova_janela, text="Valor de um slider").pack(pady=10)
     
     slider = customtkinter.CTkSlider(nova_janela, from_=0, to=100,command=slider_value, width=250,button_color="red",progress_color="green").pack(pady=20)
+
 
 row = 1
 column1=0
