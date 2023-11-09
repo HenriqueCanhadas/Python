@@ -88,7 +88,6 @@ def criar_excel():
 
     print("Leu o Criar Excel", end="\n")
 
-    print(id)
     print("*"*200)
     print(id_parametros)
 
