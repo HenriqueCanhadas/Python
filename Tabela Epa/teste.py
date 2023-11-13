@@ -5,9 +5,9 @@ from openpyxl.styles import Alignment
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
-workbook = openpyxl.load_workbook('Tabela Epa/404086.xlsx')
+workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
 
-sheet = workbook['Res Soil 0423']
+sheet = workbook['Res Soil 1123']
 
 linhaParaTerminal = ("*"*200)
 
@@ -98,9 +98,9 @@ workbook.save('Tabela Epa/testearquivo.xlsx')
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404086.xlsx')
+workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
 
-sheet = workbook['Res Tapwater 0423']
+sheet = workbook['Res Tapwater 1123']
 
 linhaParaTerminal = ("*"*200)
 
@@ -190,9 +190,9 @@ workbook.save('Tabela Epa/testearquivo.xlsx')
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404086.xlsx')
+workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
 
-sheet = workbook['Res Air 0423']
+sheet = workbook['Res Air 1123']
 
 linhaParaTerminal = ("*"*200)
 
@@ -282,9 +282,9 @@ workbook.save('Tabela Epa/testearquivo.xlsx')
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404086.xlsx')
+workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
 
-sheet = workbook['Soil to GW 0423']
+sheet = workbook['Soil to GW 1123']
 
 linhaParaTerminal = ("*"*200)
 
@@ -318,7 +318,7 @@ workbook.close()
 workbook = openpyxl.load_workbook('Tabela Epa/testearquivo.xlsx')
 
 # Criar uma nova planilha chamada "MinhaPlanilha" no índice 2 (após a planilha padrão "Sheet")
-nova_planilha = workbook.create_sheet("Solo para GW 0423", 4)
+nova_planilha = workbook.create_sheet("Solo para GW 1123", 4)
 
 cancerigenox10 = []
 valor_final = []
@@ -374,9 +374,9 @@ workbook.save('Tabela Epa/testearquivo.xlsx')
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404086.xlsx')
+workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
 
-sheet = workbook['Ind Soil 0423']
+sheet = workbook['Ind Soil 1123']
 
 linhaParaTerminal = ("*"*200)
 
@@ -466,9 +466,11 @@ workbook.save('Tabela Epa/testearquivo.xlsx')
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404086.xlsx')
+workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
 
-sheet = workbook['Ind Air 0423']
+
+
+sheet = workbook['Ind Air 1123']
 
 linhaParaTerminal = ("*"*200)
 
