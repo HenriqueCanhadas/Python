@@ -1,25 +1,16 @@
-import openpyxl
+from openpyxl import Workbook
 import pandas as pd
-
-import xlrd
-
-
+'''
 excel_laboratorio=openpyxl.load_workbook('Ceimic/Analise Ceimic.xlsx')
 
-planilha=excel_laboratorio['Amostras Resultados']
+planilha=excel_laboratorio['Analise Ceimic']
 
 Teste = []
 
 pm = []  # antigo id
 tipo_de_amostra = []  # antigo tipo
 data_hora = []  # antiga data
-'''
-for item in planilha.iter_rows(1, planilha.max_row, min_col=1, max_col=6):
-    for celula in item:
-        if celula.value is not None:
-         print(celula.value)
-         Teste.append(celula.value)
-'''
+
 for linha in range(2, planilha.max_row + 1):
         celula_pm = planilha.cell(row=linha, column=5).value  # Antiga cell1
         celula_seguinte = planilha.cell(row=linha+1, column=5).value  # Antiga cell2
@@ -62,36 +53,39 @@ print(f"Quantidade de itens: {quantidade_itens_bv_03}")
 excel_laboratorio.close()
 
 print("teste")
-
-import pandas as pd
-import openpyxl
- 
-tabela_lab = pd.read_excel('Ceimic/SERVMAR_Edd-14-11-23.xlsx')
-tabela_bd = pd.read_excel('Ceimic/VSs das amostras - Servmar.xlsx')
- 
-procv = pd.merge(tabela_lab, tabela_bd,how='left', on="Análise")
-print(procv)
- 
-procv.to_excel('Ceimic\Resultado_Merge_teste.xlsx', index=False)
-
-
 '''
-# Carregar a planilha
-workbook = openpyxl.load_workbook('Ceimic/Parametros Ceimic.xlsx')
+ 
+tabela_lab = pd.read_excel('Ceimic/Analise Ceimic.xlsx')
+tabela_bd = pd.read_excel('Ceimic/banco de dados - ceimic.xlsx')
+ 
+tabela_merge = pd.merge(tabela_lab, tabela_bd,how='left', on="Análise") 
+tabela_merge.to_excel('Ceimic/Resultado_Merge.xlsx', index=False)
+data_frame = pd.read_excel('Ceimic/Resultado_Merge.xlsx')
+ 
+lista_pm = data_frame['SAMPLENAME'].unique()
+lista_descricao_metodo = data_frame['Descrição Método'].unique()
+ 
+# Criar um novo DataFrame para armazenar os resultados filtrados
+resultado_final = pd.DataFrame()
+workbook = Workbook()
+ 
+# Iterar sobre as listas e adicionar os resultados filtrados ao novo DataFrame
+for descricao_metodo in lista_descricao_metodo:  # para cada descrição do metodo na lista
+    # filtra na coluna descrição do método do arquivo "Resultado_Merge.xlsx" cada item na lista descrição do metodo
+    filtro = (data_frame['Descrição Método'] == descricao_metodo)
+    resultado_filtrado = data_frame[filtro]
+    
+    # Verificar se o resultado não está vazio antes de adicionar ao DataFrame final
+    if not resultado_filtrado.empty:
+        # Adicionar os resultados filtrados ao DataFrame final
+        resultado_final = pd.concat([resultado_final, resultado_filtrado[["SAMPLENAME", "SAMPDATE", "Descrição Método", "Análise", "CASNUMBER", "Result", "UNITS"]]], ignore_index=True)
+        # Criar uma nova aba no Excel com o nome do item da lista_descricao_metodo
+        aba_descricao_metodo = workbook.create_sheet(title=descricao_metodo)
 
-# Selecionar a primeira folha da planilha
-sheet = workbook.active
-# Inicializar a lista para armazenar os valores encontrados
-valores_encontrados = []
-# Iterar sobre as linhas da planilha
-for row in sheet.iter_rows(min_row=2, values_only=True):  # Começa da segunda linha para evitar cabeçalhos
-    # Verificar se o valor da célula está presente no dicionário
-    if row[1] in analises:
-          valores_encontrados.append((row[0],row[1] ,row[2]))  # Adicionar o valor da primeira coluna à lista
+        # Adiciona cada linha do descrição metdo em uma nova aba
+        for linha in resultado_filtrado.itertuples(index=False):
+            aba_descricao_metodo.append(linha)
 
-quantidade_itens = len(valores_encontrados)
-print(f"Quantidade de itens: {quantidade_itens}")
+resultado_final.to_excel('Ceimic/Resultado_Final.xlsx', index=False)
 
-# Fechar a planilha
-workbook.close()
-'''
+workbook.save('Resultado_Final_Com_Abas.xlsx')
