@@ -60,8 +60,6 @@ def obter_valores():
                         break
                     nomes_quimicos.append(cell.value)
     
-    nova= [nome if nome in nomes else nome.replace(" ", "") for nome in nomes_quimicos]
-
     #Laço para pegar os valores da celula B,C,D
     for row in sheet.iter_rows(min_row=7, max_row=sheet.max_row, min_col=2, max_col=4):  #min_col=2 == B, max_col=4 == D
         for cell in row:
@@ -189,18 +187,6 @@ def obter_valores():
 
 obter_valores()
 
-print(vl_aguasub)
-
-quantidade = len(vl_aguasub)
-
-print(quantidade)
-
-print(linhaParaTerminal)
-
-print(nomes_quimicos)
-
-print(linhaParaTerminal)
-
 #Fecha o Arquivo teste
 workbook.close()
 
@@ -208,7 +194,7 @@ workbook.close()
 workbook = openpyxl.Workbook()
 
 # Selecione a planilha ativa (por padrão, há uma planilha chamada 'Sheet')
-sheet = workbook.active
+planilha = workbook.active
 
 fill = PatternFill(start_color='FFFF00', end_color='FFFF00', fill_type='solid')
 
