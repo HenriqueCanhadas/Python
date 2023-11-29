@@ -74,12 +74,6 @@ for valor_a, valor_b, valor_c, valor_h, valor_i, valor_j, valor_k, valor_l, valo
         valor_agua = valor_o if pd.notna(valor_o) else (valor_p if pd.notna(valor_p) else valor_n)
         valores_coluna_agua.append(valor_agua)
 
-print(valores_coluna_agua)
-
-quantidade = len(valores_coluna_agua)
-
-print(quantidade)
-
 # Crie um novo DataFrame com os valores das colunas A, B, C e I
 novo_dataframe = pd.DataFrame({"Analyte": valores_coluna_a,"CAS": valores_coluna_b,"Agrícola": valores_coluna_agricola,"Residencial": valores_coluna_residencial,"Industrial": valores_coluna_industrial,"Água": valores_coluna_agua})
 
