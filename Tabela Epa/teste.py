@@ -3,11 +3,26 @@ import warnings
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment
 
+import pandas as pd
+
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
-workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
+arquivo_excel_pandas = pd.ExcelFile('Tabela Epa/404086.xlsx')
+nomes_abas = arquivo_excel_pandas.sheet_names
 
-sheet = workbook['Res Soil 1123']
+Res_Soil = nomes_abas[1]
+Res_Tapwater = nomes_abas[2]
+Res_Air =  nomes_abas[3]
+Soil_to_GW = nomes_abas[4]
+Ind_Soil = nomes_abas[5]
+Ind_Air = nomes_abas[6]
+
+arquivo_openpyxl = 'Tabela Epa/404086.xlsx'
+arquivo_salvo = 'Tabela Epa/Dados_Tabelados_com_Abas.xlsx'
+
+workbook = openpyxl.load_workbook(arquivo_openpyxl)
+
+sheet = workbook[Res_Soil]
 
 linhaParaTerminal = ("*"*200)
 
@@ -94,13 +109,13 @@ for row in sheet.iter_rows():
     for cell in row:
         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-workbook.save('Tabela Epa/testearquivo.xlsx')
+workbook.save(arquivo_salvo)
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
+workbook = openpyxl.load_workbook(arquivo_openpyxl)
 
-sheet = workbook['Res Tapwater 1123']
+sheet = workbook[Res_Tapwater]
 
 linhaParaTerminal = ("*"*200)
 
@@ -131,7 +146,7 @@ for row in sheet.iter_rows(min_row=3,min_col=24, max_col=24):
 
 workbook.close()
 
-workbook = openpyxl.load_workbook('Tabela Epa/testearquivo.xlsx')
+workbook = openpyxl.load_workbook(arquivo_salvo)
 
 # Criar uma nova planilha chamada "MinhaPlanilha" no índice 2 (após a planilha padrão "Sheet")
 nova_planilha = workbook.create_sheet("Res Água da torneira", 2)
@@ -186,13 +201,13 @@ for row in nova_planilha.iter_rows():
     for cell in row:
         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-workbook.save('Tabela Epa/testearquivo.xlsx')
+workbook.save(arquivo_salvo)
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
+workbook = openpyxl.load_workbook(arquivo_openpyxl)
 
-sheet = workbook['Res Air 1123']
+sheet = workbook[Res_Air]
 
 linhaParaTerminal = ("*"*200)
 
@@ -223,7 +238,7 @@ for row in sheet.iter_rows(min_row=3,min_col=10, max_col=10):
 
 workbook.close()
 
-workbook = openpyxl.load_workbook('Tabela Epa/testearquivo.xlsx')
+workbook = openpyxl.load_workbook(arquivo_salvo)
 
 # Criar uma nova planilha chamada "MinhaPlanilha" no índice 2 (após a planilha padrão "Sheet")
 nova_planilha = workbook.create_sheet("Res Ar", 3)
@@ -278,13 +293,13 @@ for row in nova_planilha.iter_rows():
     for cell in row:
         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-workbook.save('Tabela Epa/testearquivo.xlsx')
+workbook.save(arquivo_salvo)
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
+workbook = openpyxl.load_workbook(arquivo_openpyxl)
 
-sheet = workbook['Soil to GW 1123']
+sheet = workbook[Soil_to_GW]
 
 linhaParaTerminal = ("*"*200)
 
@@ -315,7 +330,7 @@ for row in sheet.iter_rows(min_row=3,min_col=24, max_col=24):
 
 workbook.close()
 
-workbook = openpyxl.load_workbook('Tabela Epa/testearquivo.xlsx')
+workbook = openpyxl.load_workbook(arquivo_salvo)
 
 # Criar uma nova planilha chamada "MinhaPlanilha" no índice 2 (após a planilha padrão "Sheet")
 nova_planilha = workbook.create_sheet("Solo para GW 1123", 4)
@@ -370,13 +385,13 @@ for row in nova_planilha.iter_rows():
     for cell in row:
         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-workbook.save('Tabela Epa/testearquivo.xlsx')
+workbook.save(arquivo_salvo)
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
+workbook = openpyxl.load_workbook(arquivo_openpyxl)
 
-sheet = workbook['Ind Soil 1123']
+sheet = workbook[Ind_Soil]
 
 linhaParaTerminal = ("*"*200)
 
@@ -407,7 +422,7 @@ for row in sheet.iter_rows(min_row=3,min_col=25, max_col=25):
 
 workbook.close()
 
-workbook = openpyxl.load_workbook('Tabela Epa/testearquivo.xlsx')
+workbook = openpyxl.load_workbook(arquivo_salvo)
 
 # Criar uma nova planilha chamada "MinhaPlanilha" no índice 2 (após a planilha padrão "Sheet")
 nova_planilha = workbook.create_sheet("Solo Ind", 5)
@@ -462,15 +477,15 @@ for row in nova_planilha.iter_rows():
     for cell in row:
         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-workbook.save('Tabela Epa/testearquivo.xlsx')
+workbook.save(arquivo_salvo)
 workbook.close
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-workbook = openpyxl.load_workbook('Tabela Epa/404359.xlsx')
+workbook = openpyxl.load_workbook(arquivo_openpyxl)
 
 
 
-sheet = workbook['Ind Air 1123']
+sheet = workbook[Ind_Air]
 
 linhaParaTerminal = ("*"*200)
 
@@ -501,7 +516,7 @@ for row in sheet.iter_rows(min_row=3,min_col=10, max_col=10):
 
 workbook.close()
 
-workbook = openpyxl.load_workbook('Tabela Epa/testearquivo.xlsx')
+workbook = openpyxl.load_workbook(arquivo_salvo)
 
 # Criar uma nova planilha chamada "MinhaPlanilha" no índice 2 (após a planilha padrão "Sheet")
 nova_planilha = workbook.create_sheet("Ind Air", 6)
@@ -556,5 +571,5 @@ for row in nova_planilha.iter_rows():
     for cell in row:
         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-workbook.save('Tabela Epa/testearquivo.xlsx')
+workbook.save(arquivo_salvo)
 workbook.close
