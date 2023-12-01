@@ -7,7 +7,7 @@ import pandas as pd
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
-arquivo_excel_pandas = pd.ExcelFile('Tabela Epa/404086.xlsx')
+arquivo_excel_pandas = pd.ExcelFile('Tabela Epa/404359.xlsx')
 nomes_abas = arquivo_excel_pandas.sheet_names
 
 Res_Soil = nomes_abas[1]
@@ -17,7 +17,7 @@ Soil_to_GW = nomes_abas[4]
 Ind_Soil = nomes_abas[5]
 Ind_Air = nomes_abas[6]
 
-arquivo_openpyxl = 'Tabela Epa/404086.xlsx'
+arquivo_openpyxl = 'Tabela Epa/404359.xlsx'
 arquivo_salvo = 'Tabela Epa/Dados_Tabelados_com_Abas.xlsx'
 
 workbook = openpyxl.load_workbook(arquivo_openpyxl)
