@@ -8,7 +8,7 @@ def create_bar(height, width, color):
     return bar, (red, green, blue)
 
 
-img = cv2.imread('teste.jpg')
+img = cv2.imread('Solo1.jpg')
 
 height, width, _  = np.shape(img)
 
