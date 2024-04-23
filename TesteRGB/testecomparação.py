@@ -7,7 +7,7 @@ df = pd.read_excel('Banco de Cores.xlsx')
 import cv2
 
 # Carregar a imagem
-imagem = cv2.imread('Solo1.jpg')
+imagem = cv2.imread('teste.jpg')
 
 # Calcular a média de cor
 media_cor = cv2.mean(imagem)

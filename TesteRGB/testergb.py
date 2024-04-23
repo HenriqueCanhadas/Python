@@ -8,7 +8,7 @@ def create_bar(height, width, color):
     return bar, (red, green, blue)
 
 
-img = cv2.imread('Solo1.jpg')
+img = cv2.imread('black.jpg')
 
 height, width, _  = np.shape(img)
 
@@ -47,3 +47,31 @@ cv2.imshow("dominat colors", img_bar)
 cv2.waitKey(0)
 
 
+
+
+        gl.glColor3f(1.0f, 1.0f, 0.0f); // Definindo a cor amarela
+        gl.glBegin(GL2.GL_TRIANGLE_FAN);
+        gl.glVertex2f(0.0f, 0.0f); // Vértice central
+        
+        float outerRadius = 0.5f; // Raio externo
+        float innerRadius = 0.2f; // Raio interno
+        
+        for (int i = 0; i <= 5; i++) {
+            float angle = (float) (i * 2 * Math.PI / 5); // Ângulo para cada vértice
+        
+            // Calculando coordenadas dos vértices externos e internos
+            float outerX = (float) (Math.cos(angle) * outerRadius);
+            float outerY = (float) (Math.sin(angle) * outerRadius);
+            float innerX = (float) (Math.cos(angle + Math.PI / 5) * innerRadius);
+            float innerY = (float) (Math.sin(angle + Math.PI / 5) * innerRadius);
+        
+            // Desenhando os vértices
+            if (i % 2 == 0) {
+                gl.glVertex2f(outerX, outerY);
+                gl.glVertex2f(innerX, innerY);
+            } else {
+                gl.glVertex2f(innerX, innerY);
+                gl.glVertex2f(outerX, outerY);
+            }
+        }
+        gl.glEnd();
