@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+HomeFilmes
+{% endblock %}
+
+{% block content%}
+<div class="py-40">
+    <h1>Lista de Filmes</h1>
+    <hr>
+    {% for filme in object_list%}
+    <a href="{% url 'filme:detalhesfilme' filme.pk %}"><p>{{filme.titulo}}</p></a>
+    <p>{{filme.descricao}}</p>
+    <img src="{{filme.thumb.url}}">
+    {% endfor%}
+</div>
+
+<a href=""> Link Personalizado </a>
+{% endblock %}
