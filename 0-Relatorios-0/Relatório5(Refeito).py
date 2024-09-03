@@ -152,10 +152,10 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano, num_periodos=12
         print("-" * 100)
 
     # Aguardar e sair do sistema
-    time.sleep(10)
-    icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
-    icone_logout.click()
-    time.sleep(10)
+    #time.sleep(10)
+    #icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
+    #icone_logout.click()
+    #time.sleep(10)
 
 def mensagem_download(driver, mensagem_segundo_plano):
     try:
@@ -201,5 +201,8 @@ def main():
 
     input("Pressiona enter")
        
+
+#VERIFICAR MENSAGEM DE DOWLOAD
+
 if __name__ == "__main__":
     main()
