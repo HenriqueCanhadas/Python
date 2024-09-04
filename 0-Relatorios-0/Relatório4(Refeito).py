@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
+from twilio.rest import Client
 
 def criar_pasta(caminho_base):
 
@@ -191,16 +192,29 @@ def main():
     usuario = "tvillavas"
     senha = "Operator24"  
 
-    caminho_completo=criar_pasta(caminho_base)
-    navegador, espera=iniciar_navegador(caminho_completo,url_labsoft)      
+    try:
+        caminho_completo = criar_pasta(caminho_base)
+        navegador, espera = iniciar_navegador(caminho_completo, url_labsoft)      
 
-    login(usuario,senha,espera)
-    dados_relatorio(espera)
-    extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+        login(usuario, senha, espera)
+        dados_relatorio(espera)
+        extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+        
+        time.sleep(10)
     
-    time.sleep(10)
+    except Exception as e:
+        # Envia SMS em caso de erro
+        account_sid = 'AC906fb314ba2d4000b78916ef36dab13d'
+        auth_token = 'd61f751b0989db1e918488c18a273d7e'
+        client = Client(account_sid, auth_token)
 
-    input("Pressiona enter")
+        message = client.messages.create(
+          from_='+19133694026',
+          body=f'Erro no Código: {str(e)}. POR FAVOR VERIFICAR.',
+          to='+5511932738996'
+        )
+
+        print(message.sid)
        
 if __name__ == "__main__":
     main()

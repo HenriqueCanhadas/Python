@@ -1,11 +1,13 @@
-# Obter o número do relatório e o horário atual
-from datetime import datetime
+from twilio.rest import Client
 
+account_sid = 'AC906fb314ba2d4000b78916ef36dab13d'
+auth_token = 'd61f751b0989db1e918488c18a273d7e'
+client = Client(account_sid, auth_token)
 
-numero_relatorio = 1
-horario = datetime.today().strftime('%H.%M')
+message = client.messages.create(
+  from_='+19133694026',
+  body='Oi Tudo bem?',
+  to='+5511932738996'
+)
 
-# Formatar o nome da pasta de maneira clara e descritiva
-pasta_horario = f"Relatório_{numero_relatorio:02d}_CriadoÀs_{horario.replace('.', 'h')}min"
-
-print(pasta_horario)
+print(message.sid)

@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
+from twilio.rest import Client
 
 def criar_pasta(caminho_base):
 
@@ -183,6 +184,8 @@ def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
             print("Botão habilitado, saindo do loop!")
             break  # Interrompe o loop quando o botão estiver habilitado
 
+
+
 def main():
     url_labsoft = "https://labsoft-identitycenter-sts-prd.azurewebsites.net/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DmyLIMSweb_JQuery%26redirect_uri%3Dhttps%253A%252F%252Foperator.mylimsweb.cloud%252Fcallback%252Findex%26response_type%3Dcode%26scope%3Dopenid%2520myLIMSweb_API_Create%2520myLIMSweb_API_Read%2520myLIMSweb_API_Update%2520myLIMSweb_API_Delete%2520DataViewer_API_Create%2520DataViewer_API_Read%2520DataViewer_API_Update%2520DataViewer_API_Delete%2520DataFactory_API_Create%2520DataFactory_API_Read%2520DataFactory_API_Update%2520DataFactory_API_Delete%26state%3D5d6e82bc61304a539eb558e4d12338df%26code_challenge%3DWMs1aUezfwUM-blX862r9-qXVhy9vgeQDopd1JCvTZI%26code_challenge_method%3DS256%26response_mode%3Dquery%26requesterClient%3Doperator"
     caminho_base = r"C:\Users\henrique.canhadas\OneDrive - Servmar Ambientais\Documentos\Codigos\GitHub\Python\0-Relatorios-0\Teste"
@@ -190,19 +193,29 @@ def main():
     usuario = "tvillavas"
     senha = "Operator24"  
 
-    caminho_completo=criar_pasta(caminho_base)
-    navegador, espera=iniciar_navegador(caminho_completo,url_labsoft)      
+    try:
+        caminho_completo = criar_pasta(caminho_base)
+        navegador, espera = iniciar_navegador(caminho_completo, url_labsoft)      
 
-    login(usuario,senha,espera)
-    dados_relatorio(espera)
-    extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+        login(usuario, senha, espera)
+        dados_relatorio(espera)
+        extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+        
+        time.sleep(10)
     
-    time.sleep(10)
+    except Exception as e:
+        # Envia SMS em caso de erro
+        account_sid = 'AC906fb314ba2d4000b78916ef36dab13d'
+        auth_token = 'd61f751b0989db1e918488c18a273d7e'
+        client = Client(account_sid, auth_token)
 
-    input("Pressiona enter")
-       
+        message = client.messages.create(
+          from_='+19133694026',
+          body=f'Erro no Código: {str(e)}. POR FAVOR VERIFICAR.',
+          to='+5511932738996'
+        )
 
-#VERIFICAR MENSAGEM DE DOWLOAD
+        print(message.sid)
 
 if __name__ == "__main__":
     main()
