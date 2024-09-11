@@ -79,40 +79,35 @@ def login(usuario,senha,espera):
     campo_login.send_keys(usuario)
     campo_senha = espera.until(EC.visibility_of_element_located((By.ID, "Password")))
     campo_senha.send_keys(senha)  
-    got_it = espera.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/div/a')))
-    got_it.click()
+    
+    #got_it = espera.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/div/a')))
+    #got_it.click()
+    
     botao_login = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "labsoft-login-button-primary")))
     botao_login.click()
 
 def logout(espera):
-    time.sleep(10)
+    time.sleep(3)
     #Sair do Mylims
     icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
     icone_logout.click()
     time.sleep(10)
 
 def dados_relatorio(espera):
-    # Acessa a aba "Relatórios Gerenciais"
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    print("A")
     time.sleep(10)
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    print("B")
     time.sleep(10)
-    # Coloca os inputs solicitados
     botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
-    print("C")
     time.sleep(3)
     amostras_informacoes_analises = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='11']")))
     amostras_informacoes_analises.click()
-    print("D")
     time.sleep(3)
     botao_selecao_registrada = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span[aria-controls='ComboBox_72_listbox']")))
     botao_selecao_registrada.click()
-    print("E")
     time.sleep(3)
     
     # Espera até que o elemento esteja visível
@@ -121,9 +116,7 @@ def dados_relatorio(espera):
     # Clica no elemento
     registrada.click()
 
-    # Mensagem de sucesso
-    print("F")
-    time.sleep(10)
+    time.sleep(3)
 
 def extrair_relatorio(navegador, espera, mensagem_segundo_plano, usuario, senha):
     # Inicia o contador_dias 
@@ -177,6 +170,7 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano, usuario, senha)
         contador_dias = contador_dias + 2
 
         logout(espera)
+        
 def mensagem_download(driver, mensagem_segundo_plano):
     try:
         driver.find_element(*mensagem_segundo_plano)
