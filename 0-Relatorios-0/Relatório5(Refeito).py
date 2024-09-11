@@ -7,7 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
-from twilio.rest import Client
+import smtplib
+import email.message
 
 def criar_pasta(caminho_base):
 
@@ -52,7 +53,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     opcoes_chrome.add_experimental_option("prefs", prefs)
 
     # Não abre habilita o Chorme abrir em janela
-    #opcoes_chrome.add_argument('headless')
+    opcoes_chrome.add_argument('headless')
 
     # Inicializa o navegador com as opções configuradas
     navegador = webdriver.Chrome(service=servico, options=opcoes_chrome)
@@ -61,7 +62,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     #navegador.minimize_window()
 
     # Abre e maximiza o navegador
-    navegador.maximize_window()
+    #navegador.maximize_window()
 
     # Acessa o site especificado
     navegador.get(url_labsoft)
@@ -125,7 +126,6 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano, num_periodos=12
         data_atual -= timedelta(days=dias_periodo)
         periodos.append((data_atual.strftime('%d/%m/%Y'), data_final.strftime('%d/%m/%Y')))
 
-    # Exibindo os períodos e executando a lógica de download
     for contador_arquivos, (data_inicio_str, data_final_str) in enumerate(periodos, start=1):
         print(f"Geração {contador_arquivos}º período")
         print(f"{contador_arquivos}º período = Inicio:{data_inicio_str} 00:01")
@@ -145,24 +145,23 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano, num_periodos=12
         gerar_relatorio.click()
         time.sleep(0.5)
 
-        # Monitorar mudanças no HTML até que o botão de relatório seja liberado
         while monitorar_mudanca_html(navegador, 'button_10', mensagem_segundo_plano):
             pass
 
         print(f"Arquivo N°:{contador_arquivos} Clicado Para Baixar")
         print("-" * 100)
 
-    # Aguardar e sair do sistema
-    #time.sleep(10)
-    #icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
-    #icone_logout.click()
-    #time.sleep(10)
+    time.sleep(10)
+    icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
+    icone_logout.click()
+    time.sleep(10)
 
 def mensagem_download(driver, mensagem_segundo_plano):
     try:
         driver.find_element(*mensagem_segundo_plano)
         return True
     except:
+        time.sleep(10)
         return False
     
 def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
@@ -184,7 +183,85 @@ def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
             print("Botão habilitado, saindo do loop!")
             break  # Interrompe o loop quando o botão estiver habilitado
 
+def email_erro(e):
+        corpo_email = f"""
+        <html>
+            <body>
+                <h2><strong>Relatório 5</strong> - Erro no Código</h2>
+                <p><strong>Data e Hora:</strong> {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+                <p><strong>Descrição do Erro:</strong></p>
+                <p style="color: red;"><pre>{str(e)}</pre></p>
+            </body>
+        </html>
+        """
 
+        # Configuração do e-mail
+        msg = email.message.Message()
+        msg['Subject'] = "🚨 Erro no Projeto Automação"
+        msg['From'] = 'tiservmar@gmail.com'
+        msg['To'] = 'vitor.lucas@servmarambiental.com'
+        msg['Cc'] = 'henrique.canhadas@servmarambiental.com'  # Adicionando Cópia (Cc)
+        password = 'vfbppqosrgajjgvx'
+
+        # Configurando o corpo do e-mail
+        msg.add_header('Content-Type', 'text/html')
+        msg.set_payload(corpo_email)
+
+        # Lista de destinatários (inclui To e Cc)
+        destinatarios = [msg['To']] + [msg['Cc']]
+
+        servidor = smtplib.SMTP('smtp.gmail.com', 587)
+        servidor.starttls()
+        servidor.login(msg['From'], password)
+        servidor.sendmail(msg['From'], destinatarios, msg.as_string().encode('utf-8'))
+        servidor.quit()
+
+def email_quantidade(caminho_completo):
+    # Contando o número de arquivos no diretório
+    time.sleep(10)
+    arquivos = os.listdir(caminho_completo)
+    quantidade_arquivos = len([arquivo for arquivo in arquivos if os.path.isfile(os.path.join(caminho_completo, arquivo))])
+
+    # Definir o assunto e a mensagem com base na quantidade de arquivos
+    if quantidade_arquivos < 12:
+        assunto = "🚨 Menos de 12 arquivos na pasta"
+        mensagem = f"Há apenas <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 5</strong> na pasta: <p>{caminho_completo}</p>"
+
+    elif quantidade_arquivos > 12:
+        assunto = "🚨 Mais de 12 arquivos na pasta"
+        mensagem = f"Há <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 5</strong> na pasta: <p>{caminho_completo}</p>"
+
+    else:
+        return
+    
+    # Corpo do e-mail HTML
+    corpo_email = f"""
+    <html>
+        <body>
+            <p><strong>Data e Hora:</strong> {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+            <p>{mensagem}</p>
+        </body>
+    </html>
+    """
+    # Configuração do e-mail
+    msg = email.message.Message()
+    msg['Subject'] = assunto
+    msg['From'] = 'tiservmar@gmail.com'
+    msg['To'] = 'vitor.lucas@servmarambiental.com'
+    msg['Cc'] = 'henrique.canhadas@servmarambiental.com'  # Adicionando Cópia (Cc)
+    password = 'vfbppqosrgajjgvx'  # A senha deve ser armazenada de forma segura!
+    # Configurando o corpo do e-mail
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(corpo_email)
+    # Lista de destinatários (inclui To e Cc)
+    destinatarios = [msg['To']] + [msg['Cc']]
+    # Enviando o e-mail
+    servidor = smtplib.SMTP('smtp.gmail.com', 587)
+    servidor.starttls()
+    servidor.login(msg['From'], password)
+    servidor.sendmail(msg['From'], destinatarios, msg.as_string().encode('utf-8'))
+    servidor.quit()
+    print("E-mail enviado com sucesso!")
 
 def main():
     url_labsoft = "https://labsoft-identitycenter-sts-prd.azurewebsites.net/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DmyLIMSweb_JQuery%26redirect_uri%3Dhttps%253A%252F%252Foperator.mylimsweb.cloud%252Fcallback%252Findex%26response_type%3Dcode%26scope%3Dopenid%2520myLIMSweb_API_Create%2520myLIMSweb_API_Read%2520myLIMSweb_API_Update%2520myLIMSweb_API_Delete%2520DataViewer_API_Create%2520DataViewer_API_Read%2520DataViewer_API_Update%2520DataViewer_API_Delete%2520DataFactory_API_Create%2520DataFactory_API_Read%2520DataFactory_API_Update%2520DataFactory_API_Delete%26state%3D5d6e82bc61304a539eb558e4d12338df%26code_challenge%3DWMs1aUezfwUM-blX862r9-qXVhy9vgeQDopd1JCvTZI%26code_challenge_method%3DS256%26response_mode%3Dquery%26requesterClient%3Doperator"
@@ -200,22 +277,14 @@ def main():
         login(usuario, senha, espera)
         dados_relatorio(espera)
         extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+
+        email_quantidade(caminho_completo)
         
         time.sleep(10)
     
     except Exception as e:
-        # Envia SMS em caso de erro
-        account_sid = 'AC906fb314ba2d4000b78916ef36dab13d'
-        auth_token = 'd61f751b0989db1e918488c18a273d7e'
-        client = Client(account_sid, auth_token)
-
-        message = client.messages.create(
-          from_='+19133694026',
-          body=f'Erro no Código: {str(e)}. POR FAVOR VERIFICAR.',
-          to='+5511932738996'
-        )
-
-        print(message.sid)
+        email_erro(e)
+        print("E-mail de erro enviado com sucesso.")
 
 if __name__ == "__main__":
     main()

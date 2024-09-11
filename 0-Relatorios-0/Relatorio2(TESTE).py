@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from datetime import datetime
+from datetime import datetime, timedelta
 import smtplib
 import email.message
 
@@ -24,7 +24,7 @@ def criar_pasta(caminho_base):
     # Obter o horário atual no formato 'HH.MM'
     horario = datetime.today().strftime('%Hh%Mmin')
     # Definir o nome da nova pasta a ser criada dentro da pasta do dia
-    pasta_horario = f"Relátorio_03_{horario}"
+    pasta_horario = f"Relátorio_02_{horario}"
 
     # Combinar o caminho da pasta do dia com o nome da nova pasta
     caminho_final = os.path.join(pasta_data, pasta_horario)
@@ -53,7 +53,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     opcoes_chrome.add_experimental_option("prefs", prefs)
 
     # Não abre habilita o Chorme abrir em janela
-    opcoes_chrome.add_argument('headless')
+    #opcoes_chrome.add_argument('headless')
 
     # Inicializa o navegador com as opções configuradas
     navegador = webdriver.Chrome(service=servico, options=opcoes_chrome)
@@ -62,7 +62,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     #navegador.minimize_window()
 
     # Abre e maximiza o navegador
-    #navegador.maximize_window()
+    navegador.maximize_window()
 
     # Acessa o site especificado
     navegador.get(url_labsoft)
@@ -86,52 +86,85 @@ def login(usuario,senha,espera):
 
 def dados_relatorio(espera):
     # Acessa a aba "Relatórios Gerenciais"
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
+    print("A")
     time.sleep(10)
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
+    print("B")
     time.sleep(10)
-    #Seleção de Amostras
-    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "k-select")))
+    # Coloca os inputs solicitados
+    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
+    print("C")
     time.sleep(3)
-    #Seleção Amostras - Métodos de Análises
-    amostras_metodos_analises = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_47_listbox"]/li[15]'))) 
-    amostras_metodos_analises.click()
+    amostras_informacoes_analises = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='11']")))
+    amostras_informacoes_analises.click()
+    print("D")
     time.sleep(3)
-    #Adicionar Situação Recebia
-    botao_adicionar = espera.until(EC.visibility_of_element_located((By.ID, "button_71")))
-    botao_adicionar.click()
+    botao_selecao_registrada = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span[aria-controls='ComboBox_72_listbox']")))
+    botao_selecao_registrada.click()
+    print("E")
     time.sleep(3)
-    recebida = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Grid_128_noteditable"]/div[2]/table/tbody/tr[2]/td[2]'))) 
-    recebida.click()
-    time.sleep(3)
-    botao_selecionar = espera.until(EC.visibility_of_element_located((By.ID, "button_123")))
-    botao_selecionar.click()
-    time.sleep(3)
-    #Adicionar Situação em Analise
-    botao_adicionar = espera.until(EC.visibility_of_element_located((By.ID, "button_71")))
-    botao_adicionar.click()
-    time.sleep(3)
-    analise = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Grid_147_noteditable"]/div[2]/table/tbody/tr[3]/td[2]'))) 
-    analise.click()
-    time.sleep(3)
-    botao_selecionar1 = espera.until(EC.visibility_of_element_located((By.ID, "button_142")))  
-    botao_selecionar1.click()
-    time.sleep(3)
+    
+    # Espera até que o elemento esteja visível
+    registrada = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_72_listbox"]/li[2]')))
+
+    # Clica no elemento
+    registrada.click()
+
+    # Mensagem de sucesso
+    print("F")
+    time.sleep(10)
 
 def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
-
-    time.sleep(3)
-    gerar_relatorio = espera.until(EC.visibility_of_element_located((By.ID, 'button_10')))
-    gerar_relatorio.click()
-    time.sleep(0.5)
-
-    # Chame a função para monitorar mudanças no botão com ID 'button_10'
-    while monitorar_mudanca_html(navegador, 'button_10',mensagem_segundo_plano):
-        pass
-
+    # Inicia o contador_dias 
+    contador_dias = 1
+    
+    # Inicia o contador_arquivos
+    contador_arquivos=1
+    
+    # Inicia o contador (data de início = data de hoje - 60 dias)
+    contador_data_start = -60
+    
+    # Cria a data de start
+    data_hoje = datetime.today().date()
+    data_start = data_hoje + timedelta(days=contador_data_start)
+        
+    # Pega o período dos últimos 60 dias e baixa os arquivos no intervalo de 2 em 2
+    while contador_dias <= 60:
+        data_inicio = data_start + timedelta(days=contador_dias - 1)
+        data_final = data_start + timedelta(days=contador_dias)
+        data_inicio_str = data_inicio.strftime('%d/%m/%Y') + " 00:01"
+        data_final_str = data_final.strftime('%d/%m/%Y') + " 23:59"
+    
+        input_data_inicio = WebDriverWait(navegador, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "input[data-test='StartDate']")))
+        input_data_inicio.clear()
+        input_data_inicio.send_keys(data_inicio_str)
+    
+        input_data_final = WebDriverWait(navegador, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "input[data-test='EndDate']")))
+        input_data_final.clear()
+        input_data_final.send_keys(data_final_str)
+    
+        print(f"Data 1={data_inicio_str}")
+        print(f"Data 2={data_final_str}")
+        print(f"Arquivo N°:{contador_arquivos}")
+    
+        gerar_relatorio = espera.until(EC.visibility_of_element_located((By.ID, 'button_10')))
+        gerar_relatorio.click()
+        # Esperar indefinidamente até que a mensagem desapareça
+        print(f"Arquivo N°:{contador_arquivos} Clicado Para Baixar")
+        time.sleep(0.5)
+        
+        # Chame a função para monitorar mudanças no botão com ID 'button_10'
+        while monitorar_mudanca_html(navegador, 'button_10',mensagem_segundo_plano):
+            pass
+        
+        contador_arquivos+=1
+    
+        contador_dias = contador_dias + 2
+    
     time.sleep(10)
     #Sair do Mylims
     icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
@@ -145,7 +178,7 @@ def mensagem_download(driver, mensagem_segundo_plano):
     except:
         time.sleep(10)
         return False
-    
+
 def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
     time.sleep(3)    
     # Aguarda enquanto a mensagem de download em segundo plano estiver presente
@@ -169,7 +202,7 @@ def email_erro(e):
         corpo_email = f"""
         <html>
             <body>
-                <h2><strong>Relatório 3</strong> - Erro no Código</h2>
+                <h2><strong>Relatório 2</strong> - Erro no Código</h2>
                 <p><strong>Data e Hora:</strong> {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
                 <p><strong>Descrição do Erro:</strong></p>
                 <p style="color: red;"><pre>{str(e)}</pre></p>
@@ -205,13 +238,13 @@ def email_quantidade(caminho_completo):
     quantidade_arquivos = len([arquivo for arquivo in arquivos if os.path.isfile(os.path.join(caminho_completo, arquivo))])
 
     # Definir o assunto e a mensagem com base na quantidade de arquivos
-    if quantidade_arquivos == 0:
-        assunto = "🚨 0 arquivos na pasta"
-        mensagem = f"Há apenas <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 3</strong> na pasta: <p>{caminho_completo}</p>"
+    if quantidade_arquivos < 30:
+        assunto = "🚨 Menos de 30 arquivos na pasta"
+        mensagem = f"Há apenas <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 2</strong> na pasta: <p>{caminho_completo}</p>"
 
-    elif quantidade_arquivos > 1:
-        assunto = "🚨 Mais de 1 arquivos na pasta"
-        mensagem = f"Há <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 3</strong> na pasta: <p>{caminho_completo}</p>"
+    elif quantidade_arquivos > 30:
+        assunto = "🚨 Mais de 30 arquivos na pasta"
+        mensagem = f"Há <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 2</strong> na pasta: <p>{caminho_completo}</p>"
 
     else:
         return
@@ -248,19 +281,18 @@ def email_quantidade(caminho_completo):
 def main():
     url_labsoft = "https://labsoft-identitycenter-sts-prd.azurewebsites.net/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DmyLIMSweb_JQuery%26redirect_uri%3Dhttps%253A%252F%252Foperator.mylimsweb.cloud%252Fcallback%252Findex%26response_type%3Dcode%26scope%3Dopenid%2520myLIMSweb_API_Create%2520myLIMSweb_API_Read%2520myLIMSweb_API_Update%2520myLIMSweb_API_Delete%2520DataViewer_API_Create%2520DataViewer_API_Read%2520DataViewer_API_Update%2520DataViewer_API_Delete%2520DataFactory_API_Create%2520DataFactory_API_Read%2520DataFactory_API_Update%2520DataFactory_API_Delete%26state%3D5d6e82bc61304a539eb558e4d12338df%26code_challenge%3DWMs1aUezfwUM-blX862r9-qXVhy9vgeQDopd1JCvTZI%26code_challenge_method%3DS256%26response_mode%3Dquery%26requesterClient%3Doperator"
     caminho_base = r"C:\Users\henrique.canhadas\OneDrive - Servmar Ambientais\Documentos\Codigos\GitHub\Python\0-Relatorios-0\Teste"
-    mensagem_segundo_plano = (By.ID, "1059")
+    mensagem_segundo_plano = (By.ID, "1075")
     usuario = "tvillavas"
     senha = "Operator24"  
 
-  
     try:
         caminho_completo = criar_pasta(caminho_base)
         navegador, espera = iniciar_navegador(caminho_completo, url_labsoft)      
 
-        login(usuario, senha, espera)
+        login(usuario,senha,espera)
         dados_relatorio(espera)
         extrair_relatorio(navegador, espera, mensagem_segundo_plano)
-        
+
         email_quantidade(caminho_completo)
         
         time.sleep(10)
@@ -268,6 +300,7 @@ def main():
     except Exception as e:
         email_erro(e)
         print("E-mail de erro enviado com sucesso.")
-    
+
 if __name__ == "__main__":
-    main()
+#for _ in range(5):
+        main()

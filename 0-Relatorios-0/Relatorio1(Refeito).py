@@ -6,8 +6,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from datetime import datetime, timedelta
-from twilio.rest import Client
+from datetime import datetime
+import smtplib
+import email.message
 
 def criar_pasta(caminho_base):
 
@@ -52,7 +53,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     opcoes_chrome.add_experimental_option("prefs", prefs)
 
     # Não abre habilita o Chorme abrir em janela
-    #opcoes_chrome.add_argument('headless')
+    opcoes_chrome.add_argument('headless')
 
     # Inicializa o navegador com as opções configuradas
     navegador = webdriver.Chrome(service=servico, options=opcoes_chrome)
@@ -61,7 +62,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     #navegador.minimize_window()
 
     # Abre e maximiza o navegador
-    navegador.maximize_window()
+    #navegador.maximize_window()
 
     # Acessa o site especificado
     navegador.get(url_labsoft)
@@ -100,19 +101,19 @@ def dados_relatorio(espera):
     analitico_atividades.click()
     time.sleep(3)
     #Adicionar Tipo de Ativiade
-    botao_tipo_atividade = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_66"]/div[1]/div/span[1]/span/span')))
+    botao_tipo_atividade = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_67"]/div[1]/div/span[1]/span/span')))
     botao_tipo_atividade.click()
     time.sleep(3)
     #Proposta Comercial
-    proposta_comercial = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_68_listbox"]/li[2]')))
+    proposta_comercial = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_69_listbox"]/li[2]')))
     proposta_comercial.click()
     time.sleep(3)
     #Adicionar Etapa - Histórico
-    etapa_historico = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_76"]/div[1]/div/span[1]/span/span')))
+    etapa_historico = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_77"]/div[1]/div/span[1]/span/span'))) 
     etapa_historico.click()
     time.sleep(3)
     #Elaboração
-    elaboracao = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_78_listbox"]/li[4]')))
+    elaboracao = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_79_listbox"]/li[4]')))
     elaboracao.click()
     time.sleep(3)
 
@@ -124,11 +125,11 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
     data_inicio_str = data_inicio.strftime('%d/%m/%Y') + " 00:01"
     data_final_str = data_final.strftime('%d/%m/%Y') + " 23:59"
 
-    input_data_inicio = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_81')))
+    input_data_inicio = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_82')))
     input_data_inicio.clear()
     input_data_inicio.send_keys(data_inicio_str)
 
-    input_data_final = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_83')))
+    input_data_final = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_84')))
     input_data_final.clear()
     input_data_final.send_keys(data_final_str)
 
@@ -153,6 +154,7 @@ def mensagem_download(driver, mensagem_segundo_plano):
         driver.find_element(*mensagem_segundo_plano)
         return True
     except:
+        time.sleep(10)
         return False
     
 def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
@@ -174,6 +176,86 @@ def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
             print("Botão habilitado, saindo do loop!")
             break  # Interrompe o loop quando o botão estiver habilitado
 
+def email_erro(e):
+        corpo_email = f"""
+        <html>
+            <body>
+                <h2><strong>Relatório 1</strong> - Erro no Código</h2>
+                <p><strong>Data e Hora:</strong> {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+                <p><strong>Descrição do Erro:</strong></p>
+                <p style="color: red;"><pre>{str(e)}</pre></p>
+            </body>
+        </html>
+        """
+
+        # Configuração do e-mail
+        msg = email.message.Message()
+        msg['Subject'] = "🚨 Erro no Projeto Automação"
+        msg['From'] = 'tiservmar@gmail.com'
+        msg['To'] = 'vitor.lucas@servmarambiental.com'
+        msg['Cc'] = 'henrique.canhadas@servmarambiental.com'  # Adicionando Cópia (Cc)
+        password = 'vfbppqosrgajjgvx'
+
+        # Configurando o corpo do e-mail
+        msg.add_header('Content-Type', 'text/html')
+        msg.set_payload(corpo_email)
+
+        # Lista de destinatários (inclui To e Cc)
+        destinatarios = [msg['To']] + [msg['Cc']]
+
+        servidor = smtplib.SMTP('smtp.gmail.com', 587)
+        servidor.starttls()
+        servidor.login(msg['From'], password)
+        servidor.sendmail(msg['From'], destinatarios, msg.as_string().encode('utf-8'))
+        servidor.quit()
+
+def email_quantidade(caminho_completo):
+    # Contando o número de arquivos no diretório
+    time.sleep(10)
+    arquivos = os.listdir(caminho_completo)
+    quantidade_arquivos = len([arquivo for arquivo in arquivos if os.path.isfile(os.path.join(caminho_completo, arquivo))])
+
+    # Definir o assunto e a mensagem com base na quantidade de arquivos
+    if quantidade_arquivos == 0:
+        assunto = "🚨 0 arquivos na pasta"
+        mensagem = f"Há apenas <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 1</strong> na pasta: <p>{caminho_completo}</p>"
+
+    elif quantidade_arquivos > 1:
+        assunto = "🚨 Mais de 1 arquivos na pasta"
+        mensagem = f"Há <strong>{quantidade_arquivos}</strong> arquivos no <strong>Relatório 1</strong> na pasta: <p>{caminho_completo}</p>"
+
+    else:
+        return
+    
+    # Corpo do e-mail HTML
+    corpo_email = f"""
+    <html>
+        <body>
+            <p><strong>Data e Hora:</strong> {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+            <p>{mensagem}</p>
+        </body>
+    </html>
+    """
+    # Configuração do e-mail
+    msg = email.message.Message()
+    msg['Subject'] = assunto
+    msg['From'] = 'tiservmar@gmail.com'
+    msg['To'] = 'vitor.lucas@servmarambiental.com'
+    msg['Cc'] = 'henrique.canhadas@servmarambiental.com'  # Adicionando Cópia (Cc)
+    password = 'vfbppqosrgajjgvx'  # A senha deve ser armazenada de forma segura!
+    # Configurando o corpo do e-mail
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(corpo_email)
+    # Lista de destinatários (inclui To e Cc)
+    destinatarios = [msg['To']] + [msg['Cc']]
+    # Enviando o e-mail
+    servidor = smtplib.SMTP('smtp.gmail.com', 587)
+    servidor.starttls()
+    servidor.login(msg['From'], password)
+    servidor.sendmail(msg['From'], destinatarios, msg.as_string().encode('utf-8'))
+    servidor.quit()
+    print("E-mail enviado com sucesso!")
+
 def main():
     url_labsoft = "https://labsoft-identitycenter-sts-prd.azurewebsites.net/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DmyLIMSweb_JQuery%26redirect_uri%3Dhttps%253A%252F%252Foperator.mylimsweb.cloud%252Fcallback%252Findex%26response_type%3Dcode%26scope%3Dopenid%2520myLIMSweb_API_Create%2520myLIMSweb_API_Read%2520myLIMSweb_API_Update%2520myLIMSweb_API_Delete%2520DataViewer_API_Create%2520DataViewer_API_Read%2520DataViewer_API_Update%2520DataViewer_API_Delete%2520DataFactory_API_Create%2520DataFactory_API_Read%2520DataFactory_API_Update%2520DataFactory_API_Delete%26state%3D5d6e82bc61304a539eb558e4d12338df%26code_challenge%3DWMs1aUezfwUM-blX862r9-qXVhy9vgeQDopd1JCvTZI%26code_challenge_method%3DS256%26response_mode%3Dquery%26requesterClient%3Doperator"
     caminho_base = r"C:\Users\henrique.canhadas\OneDrive - Servmar Ambientais\Documentos\Codigos\GitHub\Python\0-Relatorios-0\Teste"
@@ -189,20 +271,13 @@ def main():
         dados_relatorio(espera)
         extrair_relatorio(navegador, espera, mensagem_segundo_plano)
         
+        email_quantidade(caminho_completo)
+        
         time.sleep(10)
     
     except Exception as e:
-        # Envia SMS em caso de erro
-        account_sid = 'AC906fb314ba2d4000b78916ef36dab13d'
-        auth_token = 'd61f751b0989db1e918488c18a273d7e'
-        client = Client(account_sid, auth_token)
-
-        message = client.messages.create(
-          from_='+19133694026',
-          body=f'Erro no Código: {str(e)}. POR FAVOR VERIFICAR.',
-          to='+5511932738996'
-        )
-        print(message.sid)
+        email_erro(e)
+        print("E-mail de erro enviado com sucesso.")
    
 if __name__ == "__main__":
     main()
