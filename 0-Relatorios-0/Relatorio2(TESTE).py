@@ -84,6 +84,13 @@ def login(usuario,senha,espera):
     botao_login = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "labsoft-login-button-primary")))
     botao_login.click()
 
+def logout(espera):
+    time.sleep(10)
+    #Sair do Mylims
+    icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
+    icone_logout.click()
+    time.sleep(10)
+
 def dados_relatorio(espera):
     # Acessa a aba "Relatórios Gerenciais"
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
@@ -118,7 +125,7 @@ def dados_relatorio(espera):
     print("F")
     time.sleep(10)
 
-def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
+def extrair_relatorio(navegador, espera, mensagem_segundo_plano, usuario, senha):
     # Inicia o contador_dias 
     contador_dias = 1
     
@@ -134,6 +141,10 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
         
     # Pega o período dos últimos 60 dias e baixa os arquivos no intervalo de 2 em 2
     while contador_dias <= 60:
+
+        login(usuario,senha,espera)
+        dados_relatorio(espera)
+
         data_inicio = data_start + timedelta(days=contador_dias - 1)
         data_final = data_start + timedelta(days=contador_dias)
         data_inicio_str = data_inicio.strftime('%d/%m/%Y') + " 00:01"
@@ -164,13 +175,8 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
         contador_arquivos+=1
     
         contador_dias = contador_dias + 2
-    
-    time.sleep(10)
-    #Sair do Mylims
-    icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
-    icone_logout.click()
-    time.sleep(10)
 
+        logout(espera)
 def mensagem_download(driver, mensagem_segundo_plano):
     try:
         driver.find_element(*mensagem_segundo_plano)
@@ -289,9 +295,7 @@ def main():
         caminho_completo = criar_pasta(caminho_base)
         navegador, espera = iniciar_navegador(caminho_completo, url_labsoft)      
 
-        login(usuario,senha,espera)
-        dados_relatorio(espera)
-        extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+        extrair_relatorio(navegador, espera, mensagem_segundo_plano, usuario, senha)
 
         email_quantidade(caminho_completo)
         
