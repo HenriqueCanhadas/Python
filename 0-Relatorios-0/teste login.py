@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 def iniciar_navegador(url_labsoft):
     # Inicia o serviço do ChromeDriverManager e instala a versão mais recente
     servico = Service(ChromeDriverManager().install())
@@ -51,18 +50,15 @@ def login(usuario, senha, espera):
     botao_login = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "labsoft-login-button-primary")))
     botao_login.click()
 
-    # Aguarda o logout
-    time.sleep(5)  # Aguarda alguns segundos antes de começar o logout
-    icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
-    icone_logout.click()
-    
-    #botao_logout = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="button_83"]')))
-    #botao_logout.click()
-    time.sleep(10)
-    # Após o logout, aguarda o reaparecimento da tela de login
-    #espera.until(EC.visibility_of_element_located((By.ID, "Username")))
-    print("Tela de login reapareceu. Pronto para novo login.")
+    print("Login realizado com sucesso.")
 
+def logout(navegador, espera):
+    time.sleep(3)
+    # Sair do Mylims usando clique via JavaScript
+    icone_logout = espera.until(EC.presence_of_element_located((By.ID, 'Logout')))
+    navegador.execute_script("arguments[0].click();", icone_logout)
+    time.sleep(10)
+    print("Logout realizado com sucesso.")
 
 def main():
     url_labsoft = "https://labsoft-identitycenter-sts-prd.azurewebsites.net/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DmyLIMSweb_JQuery%26redirect_uri%3Dhttps%253A%252F%252Foperator.mylimsweb.cloud%252Fcallback%252Findex%26response_type%3Dcode%26scope%3Dopenid%2520myLIMSweb_API_Create%2520myLIMSweb_API_Read%2520myLIMSweb_API_Update%2520myLIMSweb_API_Delete%2520DataViewer_API_Create%2520DataViewer_API_Read%2520DataViewer_API_Update%2520DataViewer_API_Delete%2520DataFactory_API_Create%2520DataFactory_API_Read%2520DataFactory_API_Update%2520DataFactory_API_Delete%26state%3D5d6e82bc61304a539eb558e4d12338df%26code_challenge%3DWMs1aUezfwUM-blX862r9-qXVhy9vgeQDopd1JCvTZI%26code_challenge_method%3DS256%26response_mode%3Dquery%26requesterClient%3Doperator"
@@ -73,15 +69,19 @@ def main():
     navegador, espera = iniciar_navegador(url_labsoft)
     contador = 0
 
-    while True:
-        # Tenta fazer login
-        login(usuario, senha, espera)
-        contador += 1
-        print(f"Login e logout número {contador} concluído com sucesso.")
-        time.sleep(3)  # Aguarda alguns segundos antes de tentar novamente
-
-    # Fecha o navegador após finalizar
-    navegador.quit()
+    try:
+        while True:
+            # Tenta fazer login
+            login(usuario, senha, espera)
+            logout(navegador, espera)
+            contador += 1
+            print(f"Login e logout número {contador} concluído com sucesso.")
+            time.sleep(3)  # Aguarda alguns segundos antes de tentar novamente
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
+    finally:
+        # Fecha o navegador após finalizar
+        navegador.quit()
 
 if __name__ == "__main__":
     main()

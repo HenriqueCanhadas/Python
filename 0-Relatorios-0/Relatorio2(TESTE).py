@@ -86,11 +86,11 @@ def login(usuario,senha,espera):
     botao_login = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "labsoft-login-button-primary")))
     botao_login.click()
 
-def logout(espera):
-    time.sleep(3)
-    #Sair do Mylims
-    icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
-    icone_logout.click()
+def logout(navegador, espera):
+    time.sleep(5)
+    # Sair do Mylims usando clique via JavaScript
+    icone_logout = espera.until(EC.presence_of_element_located((By.ID, 'Logout')))
+    navegador.execute_script("arguments[0].click();", icone_logout)
     time.sleep(10)
 
 def dados_relatorio(espera):
@@ -169,7 +169,7 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano, usuario, senha)
     
         contador_dias = contador_dias + 2
 
-        logout(espera)
+        logout(navegador,espera)
         
 def mensagem_download(driver, mensagem_segundo_plano):
     try:
@@ -300,5 +300,5 @@ def main():
         print("E-mail de erro enviado com sucesso.")
 
 if __name__ == "__main__":
-#for _ in range(5):
+    for _ in range(5):
         main()
