@@ -10,6 +10,10 @@ from datetime import datetime
 import smtplib
 import email.message
 
+
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+
 def criar_pasta(caminho_base):
 
     # Obter a data de hoje no formato 'YYYY-MM-DD'
@@ -53,7 +57,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     opcoes_chrome.add_experimental_option("prefs", prefs)
 
     # Não abre habilita o Chorme abrir em janela
-    opcoes_chrome.add_argument('headless')
+    #opcoes_chrome.add_argument('headless')
 
     # Inicializa o navegador com as opções configuradas
     navegador = webdriver.Chrome(service=servico, options=opcoes_chrome)
@@ -62,7 +66,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     #navegador.minimize_window()
 
     # Abre e maximiza o navegador
-    #navegador.maximize_window()
+    navegador.maximize_window()
 
     # Acessa o site especificado
     navegador.get(url_labsoft)
@@ -84,41 +88,39 @@ def login(usuario,senha,espera):
     botao_login = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "labsoft-login-button-primary")))
     botao_login.click()
 
-def dados_relatorio(espera):
+def dados_relatorio(espera, acao):
     # Acessa a aba "Relatórios Gerenciais"
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    time.sleep(10)
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    time.sleep(5)
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    time.sleep(10)
+    time.sleep(3)
     #Seleção de Amostras
-    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "k-select")))
+    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
     time.sleep(3)
     #Seleção Amostras - Métodos de Análises
-    amostras_metodos_analises = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_47_listbox"]/li[15]'))) 
+    amostras_metodos_analises = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='14']")))
     amostras_metodos_analises.click()
     time.sleep(3)
-    #Adicionar Situação Recebia
-    botao_adicionar = espera.until(EC.visibility_of_element_located((By.ID, "button_71")))
+    # Adicionar Situação Recebida e Em Análise
+    botao_adicionar = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="Adicionar"]')))
     botao_adicionar.click()
     time.sleep(3)
-    recebida = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Grid_128_noteditable"]/div[2]/table/tbody/tr[2]/td[2]'))) 
-    recebida.click()
+    # Localiza as linhas desejadas
+    recebida = espera.until(EC.visibility_of_element_located((By.XPATH, '//tr[td[2][text()="Recebida"]]')))
+    analise = espera.until(EC.visibility_of_element_located((By.XPATH, '//tr[td[2][text()="Em Análise"]]')))
+    # Segura a tecla Ctrl e clica nos elementos
+    acao.key_down(Keys.CONTROL)
+    acao.click(recebida)
+    acao.click(analise)
+    acao.key_up(Keys.CONTROL)
+    acao.perform()
     time.sleep(3)
-    botao_selecionar = espera.until(EC.visibility_of_element_located((By.ID, "button_123")))
+    # Clica no botão Selecionar
+    botao_selecionar = espera.until(EC.element_to_be_clickable((By.XPATH, '//button[normalize-space()="Selecionar"]')))
     botao_selecionar.click()
-    time.sleep(3)
-    #Adicionar Situação em Analise
-    botao_adicionar = espera.until(EC.visibility_of_element_located((By.ID, "button_71")))
-    botao_adicionar.click()
-    time.sleep(3)
-    analise = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Grid_147_noteditable"]/div[2]/table/tbody/tr[3]/td[2]'))) 
-    analise.click()
-    time.sleep(3)
-    botao_selecionar1 = espera.until(EC.visibility_of_element_located((By.ID, "button_142")))  
-    botao_selecionar1.click()
     time.sleep(3)
 
 def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
@@ -250,15 +252,17 @@ def main():
     caminho_base = r"C:\Users\henrique.canhadas\OneDrive - Servmar Ambientais\Documentos\Codigos\GitHub\Python\0-Relatorios-0\Teste"
     mensagem_segundo_plano = (By.ID, "1059")
     usuario = "tvillavas"
-    senha = "Operator24"  
-
-  
+    senha = "Operator24" 
+ 
+ 
     try:
         caminho_completo = criar_pasta(caminho_base)
         navegador, espera = iniciar_navegador(caminho_completo, url_labsoft)      
 
         login(usuario, senha, espera)
-        dados_relatorio(espera)
+        # Cria uma instância de ActionChains
+        acao = ActionChains(navegador)
+        dados_relatorio(espera, acao)
         extrair_relatorio(navegador, espera, mensagem_segundo_plano)
         
         email_quantidade(caminho_completo)

@@ -50,7 +50,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     }
 
     # Configura as opções do Google Chrome
-    opcoes_chrome.add_experimental_option("prefs", prefs)
+    #opcoes_chrome.add_experimental_option("prefs", prefs)
 
     # Não abre habilita o Chorme abrir em janela
     #opcoes_chrome.add_argument('headless')
@@ -103,15 +103,18 @@ def dados_relatorio(espera):
     botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
     time.sleep(3)
+
+
     amostras_informacoes_analises = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='11']")))
     amostras_informacoes_analises.click()
     time.sleep(3)
-    botao_selecao_registrada = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span[aria-controls='ComboBox_72_listbox']")))
+    
+    botao_selecao_registrada = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-controls="ComboBox_72_listbox"]')))
     botao_selecao_registrada.click()
     time.sleep(3)
-    
+
     # Espera até que o elemento esteja visível
-    registrada = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_72_listbox"]/li[2]')))
+    registrada = espera.until(EC.element_to_be_clickable((By.XPATH, '//li[text()="Registrada"]')))
 
     # Clica no elemento
     registrada.click()
@@ -300,5 +303,4 @@ def main():
         print("E-mail de erro enviado com sucesso.")
 
 if __name__ == "__main__":
-    for _ in range(5):
-        main()
+    main()

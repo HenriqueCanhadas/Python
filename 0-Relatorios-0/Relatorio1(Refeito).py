@@ -53,7 +53,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     opcoes_chrome.add_experimental_option("prefs", prefs)
 
     # Não abre habilita o Chorme abrir em janela
-    opcoes_chrome.add_argument('headless')
+    #opcoes_chrome.add_argument('headless')
 
     # Inicializa o navegador com as opções configuradas
     navegador = webdriver.Chrome(service=servico, options=opcoes_chrome)
@@ -62,7 +62,7 @@ def iniciar_navegador(caminho_completo, url_labsoft):
     #navegador.minimize_window()
 
     # Abre e maximiza o navegador
-    #navegador.maximize_window()
+    navegador.maximize_window()
 
     # Acessa o site especificado
     navegador.get(url_labsoft)
@@ -86,34 +86,39 @@ def login(usuario,senha,espera):
 
 def dados_relatorio(espera):
     # Acessa a aba "Relatórios Gerenciais"
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
     time.sleep(5)
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
     time.sleep(3)
     #Seleção de Amostras
-    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "k-select")))
+    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
     time.sleep(3)
-    #Seleção Analítico de Atividades
-    analitico_atividades = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_47_listbox"]/li[16]')))
+
+    # Seleção Analítico de Atividades
+    analitico_atividades = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='15']")))
     analitico_atividades.click()
     time.sleep(3)
+
     #Adicionar Tipo de Ativiade
-    botao_tipo_atividade = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_67"]/div[1]/div/span[1]/span/span')))
+    botao_tipo_atividade = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-controls="ComboBox_68_listbox"]')))
     botao_tipo_atividade.click()
     time.sleep(3)
+
     #Proposta Comercial
-    proposta_comercial = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_69_listbox"]/li[2]')))
+    proposta_comercial = espera.until(EC.visibility_of_element_located((By.XPATH, '//li[text()="Proposta Comercial"]')))
     proposta_comercial.click()
     time.sleep(3)
+
     #Adicionar Etapa - Histórico
-    etapa_historico = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_77"]/div[1]/div/span[1]/span/span'))) 
+    etapa_historico = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span.k-select[aria-controls="ComboBox_78_listbox"]')))
     etapa_historico.click()
     time.sleep(3)
+    
     #Elaboração
-    elaboracao = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_79_listbox"]/li[4]')))
+    elaboracao = espera.until(EC.visibility_of_element_located((By.XPATH, '//li[text()="Elaboração"]')))
     elaboracao.click()
     time.sleep(3)
 
@@ -125,11 +130,11 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
     data_inicio_str = data_inicio.strftime('%d/%m/%Y') + " 00:01"
     data_final_str = data_final.strftime('%d/%m/%Y') + " 23:59"
 
-    input_data_inicio = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_82')))
+    input_data_inicio = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[data-test="StartDate"]')))
     input_data_inicio.clear()
     input_data_inicio.send_keys(data_inicio_str)
 
-    input_data_final = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_84')))
+    input_data_final = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[data-test="EndDate"]')))
     input_data_final.clear()
     input_data_final.send_keys(data_final_str)
 
