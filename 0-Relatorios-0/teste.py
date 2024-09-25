@@ -19,6 +19,8 @@ def enviar_email():
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
 
+    breakpoint()
+
     # Lista de destinatários (inclui To e Cc)
     destinatarios = [msg['To']] + [msg['Cc']]
 

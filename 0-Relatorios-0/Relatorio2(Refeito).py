@@ -85,28 +85,33 @@ def login(usuario,senha,espera):
     botao_login.click()
 
 def dados_relatorio(espera):
-    # Acessa a aba "Relatórios Gerenciais"
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    # Aguarda o carregamento da aba "Relatórios Gerenciais" e clica nela
+    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
     time.sleep(10)
-    relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.ID, "sectionitem_15")))
+    # Reduz a duplicação de cliques no mesmo elemento
+    # Espera que a aba seja clicável novamente (se necessário)
+    relatorios_gerenciais = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
     time.sleep(10)
-    # Coloca os inputs solicitados
-    botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CLASS_NAME, "k-select")))
+    # Evita o uso de time.sleep desnecessário, preferindo waits explícitos
+    # Clica no botão de seleção de amostras
+    botao_selecao_amostras = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
     time.sleep(3)
-    amostras_informacoes_analises = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_47_listbox"]/li[12]')))
+    # Seleciona a opção "Amostras - Informações e Análises" no menu
+    amostras_informacoes_analises = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='11']")))
     amostras_informacoes_analises.click()
     time.sleep(3)
-    botao_selecao_registrada = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="layoutrow_71"]/div[1]/div/span[1]/span/span')))
+    # Aguarda o botão de seleção "Registrada" e clica nele
+    botao_selecao_registrada = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-controls="ComboBox_73_listbox"]')))
     botao_selecao_registrada.click()
     time.sleep(3)
-    registrada = espera.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ComboBox_73_listbox"]/li[2]')))
+    # Seleciona a opção "Registrada" na lista suspensa
+    registrada = espera.until(EC.element_to_be_clickable((By.XPATH, '//li[text()="Registrada"]')))
     registrada.click()
-    time.sleep(10)
 
-def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
+def extrair_relatorio(navegador, espera, mensagem_segundo_plano, caminho_completo):
     # Inicia o contador_dias 
     contador_dias = 1
     
@@ -127,11 +132,11 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
         data_inicio_str = data_inicio.strftime('%d/%m/%Y') + " 00:01"
         data_final_str = data_final.strftime('%d/%m/%Y') + " 23:59"
     
-        input_data_inicio = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_76')))
+        input_data_inicio = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "input[data-test='StartDate']")))
         input_data_inicio.clear()
         input_data_inicio.send_keys(data_inicio_str)
     
-        input_data_final = espera.until(EC.visibility_of_element_located((By.ID, 'DateTimePicker_78')))
+        input_data_final = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "input[data-test='EndDate']")))
         input_data_final.clear()
         input_data_final.send_keys(data_final_str)
     
@@ -153,6 +158,9 @@ def extrair_relatorio(navegador, espera, mensagem_segundo_plano):
     
         contador_dias = contador_dias + 2
     
+    total_arquivos_esperados = 30
+    esperar_conclusao_downloads(caminho_completo, total_arquivos_esperados)
+
     time.sleep(10)
     #Sair do Mylims
     icone_logout = espera.until(EC.visibility_of_element_located((By.ID, 'Logout')))
@@ -185,6 +193,19 @@ def monitorar_mudanca_html(driver, elemento_id, mensagem_segundo_plano):
         else:
             print("Botão habilitado, saindo do loop!")
             break  # Interrompe o loop quando o botão estiver habilitado
+
+def esperar_conclusao_downloads(diretorio_download, total_arquivos_esperados):
+    import os
+    import time
+    import glob
+
+    # Enquanto houver arquivos .crdownload ou o número de arquivos .xlsx for menor que o esperado, o script irá esperar
+    while True:
+        arquivos_em_download = glob.glob(os.path.join(diretorio_download, '*.crdownload'))
+        arquivos_baixados = glob.glob(os.path.join(diretorio_download, '*.xlsx'))
+        if not arquivos_em_download and len(arquivos_baixados) >= total_arquivos_esperados:
+            break
+        time.sleep(1)  # Espera 1 segundo antes de verificar novamente
 
 def email_erro(e):
         corpo_email = f"""
@@ -279,7 +300,7 @@ def main():
 
         login(usuario,senha,espera)
         dados_relatorio(espera)
-        extrair_relatorio(navegador, espera, mensagem_segundo_plano)
+        extrair_relatorio(navegador, espera, mensagem_segundo_plano, caminho_completo)
 
         email_quantidade(caminho_completo)
         

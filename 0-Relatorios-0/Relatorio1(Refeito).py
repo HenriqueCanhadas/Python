@@ -88,35 +88,30 @@ def dados_relatorio(espera):
     # Acessa a aba "Relatórios Gerenciais"
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    time.sleep(5)
+    time.sleep(10)
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    time.sleep(3)
+    time.sleep(10)
     #Seleção de Amostras
     botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
     time.sleep(3)
-
     # Seleção Analítico de Atividades
     analitico_atividades = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "li[data-offset-index='15']")))
     analitico_atividades.click()
     time.sleep(3)
-
     #Adicionar Tipo de Ativiade
     botao_tipo_atividade = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[aria-controls="ComboBox_68_listbox"]')))
     botao_tipo_atividade.click()
     time.sleep(3)
-
     #Proposta Comercial
     proposta_comercial = espera.until(EC.visibility_of_element_located((By.XPATH, '//li[text()="Proposta Comercial"]')))
     proposta_comercial.click()
     time.sleep(3)
-
     #Adicionar Etapa - Histórico
     etapa_historico = espera.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'span.k-select[aria-controls="ComboBox_78_listbox"]')))
     etapa_historico.click()
     time.sleep(3)
-    
     #Elaboração
     elaboracao = espera.until(EC.visibility_of_element_located((By.XPATH, '//li[text()="Elaboração"]')))
     elaboracao.click()

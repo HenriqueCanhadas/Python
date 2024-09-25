@@ -9,8 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime
 import smtplib
 import email.message
-
-
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
@@ -92,10 +90,10 @@ def dados_relatorio(espera, acao):
     # Acessa a aba "Relatórios Gerenciais"
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    time.sleep(5)
+    time.sleep(10)
     relatorios_gerenciais = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div[data-test='Relatórios Gerenciais']")))
     relatorios_gerenciais.click()
-    time.sleep(3)
+    time.sleep(10)
     #Seleção de Amostras
     botao_selecao_amostras = espera.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.k-select")))
     botao_selecao_amostras.click()
