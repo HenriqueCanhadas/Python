@@ -12,6 +12,13 @@ import email.message
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
+
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+import os
+
 def criar_pasta(caminho_base):
 
     # Obter a data de hoje no formato 'YYYY-MM-DD'
